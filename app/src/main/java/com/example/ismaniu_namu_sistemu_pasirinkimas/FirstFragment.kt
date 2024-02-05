@@ -10,6 +10,7 @@ import com.example.ismaniu_namu_sistemu_pasirinkimas.databinding.FragmentFirstBi
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
+ * Test1
  */
 class FirstFragment : Fragment() {
 
