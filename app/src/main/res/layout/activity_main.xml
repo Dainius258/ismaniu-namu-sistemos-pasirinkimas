@@ -7,6 +7,7 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout2"
         android:layout_width="match_parent"
@@ -15,7 +16,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </com.google.android.material.appbar.AppBarLayout>
-
+    <!--Toolbar klaida-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        tools:ignore="MissingConstraints" />
+    <!--Toolbar klaida pabaiga-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -159,8 +167,35 @@
                 app:srcCompat="@drawable/atraskite_sprendima_button" />
 
             <!-- Add more content here -->
+            <!-- Mygtukas per viduri activity_main -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:context=".MainActivity">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="16dp"
+                    android:src="@drawable/ic_launcher_foreground"
+                    android:contentDescription="TODO" />
+
+                <fragment
+                    android:id="@+id/nav_host_fragment_content_main"
+                    android:name="androidx.navigation.fragment.NavHostFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:defaultNavHost="true"
+                    app:navGraph="@navigation/nav_graph" />
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--toolbar klaida -->
+
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
