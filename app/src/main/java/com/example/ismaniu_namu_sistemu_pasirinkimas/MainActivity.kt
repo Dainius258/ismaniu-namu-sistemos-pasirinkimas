@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         //Klausimynas
-        binding.fab.setOnClickListener {
+        /*binding.fab.setOnClickListener {
             val klausimynoPuslapis = KlausimynoPuslapis()
             supportFragmentManager.beginTransaction()
                 .replace(R.id.nav_host_fragment_content_main, klausimynoPuslapis)
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAnchorView(R.id.fab)
                 .setAction("Action", null).show()
-        }
+        }*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
