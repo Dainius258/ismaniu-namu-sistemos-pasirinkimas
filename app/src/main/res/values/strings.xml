@@ -9,5 +9,171 @@
     <string name="topText">Išmanu. Saugu. Lankstu.</string>
     <string name="jung">JUNG</string>
     <string name="sistemos_specifikacijos">Sistemos Specifikacijos</string>
-    <string name="pastato_funkcijos">Pastato Funkcijos</string>
+    <string name="get_values">Get Values</string>
+    <string name="choose1">Apšvietimo valdymas</string>
+    <string name="textview">TextView</string>
+    <string name="todo">TODO</string>
+    <string name="pagrindines_funkcijos">Pagrindinės Funkcijos</string>
+    <string name="ap_vietimo_valdymas">Apšvietimo valdymas</string>
+    <string name="aliuz_s_langin_s_tentai_stoglangiai">Žaliuzės, langinės, tentai, stoglangiai</string>
+    <string name="sildymas" >Šildymo, ventiliacijos, oro kondicionavimo valdymas</string>
+    <string name="scenos" >Scenų valdymas</string>
+    <string name="fifth_dropdown_hint">Energijos suvartojimo matavimas</string>
+    <string name="weather">Oru prognozės</string>
+    <string name="languDuruStebejimas">Langų ir durų stebėjimas</string>
+    <string name="laiko_jungikliai">Laikmačio jungikliai</string>
+    <string name="konaprasymas">Pačio vartotojo konfiguracijos apsirašymas</string>
+    <string name="vartotoju_valdymas">Vartotojų valdymas</string>
+    <string name="judesioJutikliai">Judesio, kiti jutiikliai</string>
+    <string name="loginesFun">Loginės funkcijos</string>
+    <string name="signalizacijosZinutes">Signalizacijos žinutės</string>
+    <string name="kamera">Kamera</string>
+    <string name="diagraSudarymas">Diagramų sudarymas</string>
+    <string name="veiksmuSekos">Veiksmų sękos</string>
+    <string name="valdymo">Valdymas</string>
+    <string name="ismanusTel">Išmanioju telefonu</string>
+    <string name="plansete">Planšete</string>
+    <string name="nuotolinisVald">Nuotolinis valdymas</string>
+    <string name="ismanusAsistentas">Išmanūs asistentai</string>
+    <string name="pcNarsykle">Valdymas Kompiuteriu/naršykle</string>
+    <string name="klausimynoMygtukas">Parinkti Sprendima</string>
+    <string name="kokiosStatybos">Kokios statybos namas</string>
+    <string name="valdymasIB">Valdymas</string>
+
+    <!--23 Valdymas Bluetooth, internetu-->
+    <string-array name="valdymasInternetuBluetooth">
+        <item>Bluetooth</item>
+        <item>Internetu</item>
+    </string-array>
+    <!--Kokios statybos namas-->
+    <string-array name="kokiosStatybosNamas">
+        <item>Namas projektuojamas</item>
+        <item>Naujos statybos namas</item>
+        <item>Atnaujintos statybos namas</item>
+    </string-array>
+    <!--Išmanūs asistentai-->
+    <string-array name="isHelpers">
+        <item>Google Assistan</item>
+        <item>Amazon Alexa</item>
+    </string-array>
+    <!--Kompiuteriu/naršykle-->
+    <string-array name="controlPc">
+        <item>Kompiuteriu/naršykle</item>
+    </string-array>
+    <!--Išmanioju telefonu-->
+    <string-array name="isTel">
+        <item>iOS</item>
+        <item>Android</item>
+    </string-array>
+    <!--Planšete-->
+    <string-array name="planPhone">
+        <item>iOS</item>
+        <item>Android</item>
+    </string-array>
+    <!--Nuotolinis valdymas-->
+    <string-array name="nuotolinisVald">
+        <item>eSmart HOME Remote (nemokamas)</item>
+        <item>JUNG Remote (29e vienkartinis)</item>
+    </string-array>
+    <!--Kamera-->
+    <string-array name="cam">
+        <item>Per naršyklę</item>
+    </string-array>
+    <!--Diagramu sudarymas-->
+    <string-array name="diagramosDarymas">
+        <item>Diagramos</item>
+    </string-array>
+    <!--Veiksmu sekos-->
+    <string-array name="sekosVeiksmu">
+        <item>Individualių veiksmo sekų kūrimas</item>
+    </string-array>
+    <!--Judesio, kiti jutiikliai-->
+    <string-array name="judesioJut">
+        <item>Judesio</item>
+        <item>Saulės</item>
+    </string-array>
+    <!--Loginės funkcijos-->
+    <string-array name="logFunkcijos">
+        <item>Iki 34 loginių funkcijų(AND, OR, XOR, if-then)</item>
+        <item>Savaip aprašyti scenarijai</item>
+        <item>Neriboti if-then loginiai veiksmai</item>
+        <item>Administratorius su iki 150 vartotojų su laisvai apibrėžimais leidimais</item>
+    </string-array>
+    <!--Signalizacijos žinutės-->
+    <string-array name="sigZinutes">
+        <item>Elektronio pašto žinutes.</item>
+    </string-array>
+    <!--Vartotojų valdymas-->
+    <string-array name="varValdymas">
+        <item>Vartotojai (Be leidimo keitimų)</item>
+        <item> Administratorius + vartotojai su galimybę keisti leidimus</item>
+        <item>Vartotojai ir slaptažodžiai</item>
+        <item>Administratorius su iki 150 vartotojų su laisvai apibrėžimais leidimais</item>
+    </string-array>
+    <!-- Pačio vartotojo konfiguracijos apsirašymas-->
+    <string-array name="vartotojoKonApr">
+        <item>Laikmačio programos</item>
+        <item>Vieno paspaudimo ryškumas, maž. didž ryškumas</item>
+        <item>Vėlo veikimo funkcijos</item>
+        <item>Judesio aptikimo zonų apibrėžimas</item>
+        <item>Naktinės šviesos funkcijos</item>
+        <item>Viešbučio funkcija</item>
+        <item>Mėgstamiausių funkcijų išsaugojimas</item>
+        <item>Scenų taisyklės</item>
+        <item>Balso aptarnavimas</item>
+        <item>Nuotolinė prieiga</item>
+    </string-array>
+    <!-- Laikmačio jungikliai-->
+    <string-array name="laikoJungikliai">
+        <item>40 perjungimo kartų</item>
+        <item>100 perjungimo kartų</item>
+        <item>Iki 256 perjungimo kartų</item>
+        <item>Astro funkcija</item>
+    </string-array>
+    <!--pagrindines-funkcijos-->
+    <string-array name="lightdrop">
+        <item>Paprastas jungiklis</item>
+        <item>Pritemdoma šviesa</item>
+        <item>Šviesos temperatūra</item>
+        <item>Šviesos spalva</item>
+        <item>Apšvietimo sękos</item>
+    </string-array>
+    <!--pagrindines-funkcijos-->
+    <string-array name="blindsDropdown">
+        <item>Žaliuzės</item>
+        <item>Langinės</item>
+        <item>Tentai</item>
+        <item>Stoglangiai</item>
+    </string-array>
+    <!--pagrindines-funkcijos-->
+    <string-array name="conDropdown">
+        <item>Grindų šildymo termostatas</item>
+        <item>Radiatoriaus termostatas</item>
+        <item>Ventiliacijos atvartai</item>
+        <item>Katilo termostatas</item>
+        <item>Sienos termostatas</item>
+    </string-array>
+    <!--scenos-fropdown-->
+    <string-array name="scDropdown">
+        <item>Scenų valdymas programėle</item>
+        <item>Scenų valdymas balso kontrole</item>
+        <item>Scenų valdymas sienos mygtuku</item>
+        <item>Max 34 scenos</item>
+        <item>Scenų kiekis be limitų</item>
+    </string-array>
+    <!--energinos vartojimo matavimas-fropdown-->
+    <string-array name="energyDropd">
+        <item>Energijos matavimas</item>
+    </string-array>
+    <!--weather-dropdown-->
+    <string-array name="weatherDropd">
+        <item>Orų prognozės</item>
+        <item>Orų stotelė</item>
+        <item>Taisyklių nustatymas pagal orus</item>
+    </string-array>
+    <!--langu duru stebejimas -dropdown-->
+    <string-array name="watchDoors">
+        <item>Langai</item>
+        <item>Durys</item>
+    </string-array>
 </resources>
