@@ -11,7 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.example.ismaniu_namu_sistemu_pasirinkimas.databinding.ActivityMainBinding
-
+//class MainActivity : AppCompatActivity() {
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -30,12 +30,21 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
+        //Klausimynas
+        /*binding.fab.setOnClickListener {
+            val klausimynoPuslapis = KlausimynoPuslapis()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment_content_main, klausimynoPuslapis)
+                .addToBackStack(null)
+                .commit()
+        }
+        //Klausimynas pabaiga
 
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAnchorView(R.id.fab)
                 .setAction("Action", null).show()
-        }
+        }*/
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
