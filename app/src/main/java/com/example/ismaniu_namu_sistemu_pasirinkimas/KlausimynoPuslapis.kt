@@ -14,6 +14,7 @@ class KlausimynoPuslapis : AppCompatActivity() {
         // custom CheckboxAdapter
         val arrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, languages)
 
+        //1
         val autoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.autoCompleteTextView)
         autoCompleteTextView.setAdapter(arrayAdapter)
         autoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
@@ -24,7 +25,9 @@ class KlausimynoPuslapis : AppCompatActivity() {
         val secondArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, secondLanguages)
         val thirdArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, thirdLanguages)
 
+        //2
         val secondAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.secondAutoCompleteTextView)
+        //3
         val thirdAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.thirdAutoCompleteTextView)
 
         secondAutoCompleteTextView.setAdapter(secondArrayAdapter)
@@ -174,8 +177,8 @@ class KlausimynoPuslapis : AppCompatActivity() {
         val sixthCheckedStateArray = sixthArrayAdapter.getCheckBoxState()
         val fifthCheckedStateArray = fifthArrayAdapter.getCheckBoxState()
         val fourthCheckedStateArray = fourthArrayAdapter.getCheckBoxState()
-        val secondCheckedStateArray = secondArrayAdapter.getCheckBoxState()
         val thirdCheckedStateArray = thirdArrayAdapter.getCheckBoxState()
+        val secondCheckedStateArray = secondArrayAdapter.getCheckBoxState()
         val checkedStateArray = arrayAdapter.getCheckBoxState()
 
     }
