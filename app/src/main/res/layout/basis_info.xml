@@ -10,17 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <TextView
                 android:id="@+id/pagrindas6"
-                android:layout_width="195dp"
-                android:layout_height="28dp"
+                android:layout_width="267dp"
+                android:layout_height="29dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
@@ -28,7 +26,7 @@
                 android:shadowDx="5"
                 android:shadowDy="5"
                 android:shadowRadius="6"
-                android:text="Aukščiausios klasės"
+                android:text="KNX valdymo sistema"
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -47,7 +45,7 @@
                 android:shadowDx="5"
                 android:shadowDy="5"
                 android:shadowRadius="6"
-                android:text="Premium"
+                android:text="JUNG HOME"
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -60,30 +58,29 @@
                 android:id="@+id/komfortas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="44dp"
+                android:layout_marginTop="36dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
                 android:shadowColor="#A6A6A6"
                 android:shadowDx="5"
                 android:shadowDy="5"
                 android:shadowRadius="6"
-                android:text="Komfortas"
+                android:text="eNet SMART HOME"
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.506"
+                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pagrindo_tekstas2" />
+                app:layout_constraintTop_toBottomOf="@+id/pagrindo_tekstas" />
 
             <View
                 android:id="@+id/linija2"
                 android:layout_width="304dp"
                 android:layout_height="2dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="4dp"
                 android:background="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.494"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/komfortas" />
 
@@ -96,16 +93,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pagrindas5" />
-
-            <ImageView
-                android:id="@+id/telefonas2"
-                android:layout_width="33dp"
-                android:layout_height="39dp"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="432dp"
-                app:layout_constraintStart_toEndOf="@+id/komfortas"
-                app:layout_constraintTop_toBottomOf="@+id/pagrindo_tekstas2"
-                app:srcCompat="@drawable/telefonas" />
 
             <ImageView
                 android:id="@+id/jung"
@@ -175,78 +162,13 @@
                 android:shadowDx="5"
                 android:shadowDy="5"
                 android:shadowRadius="6"
-                android:text="Pagrindas"
+                android:text="LB-Management"
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-            <ImageView
-                android:id="@+id/termometras"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="4dp"
-                app:layout_constraintEnd_toStartOf="@+id/pagrindas"
-                app:layout_constraintHorizontal_bias="0.94"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
-                app:srcCompat="@drawable/termometras" />
-
-            <ImageView
-                android:id="@+id/termometras2"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="44dp"
-                app:layout_constraintEnd_toStartOf="@+id/komfortas"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/lempa2"
-                app:layout_constraintTop_toBottomOf="@+id/pagrindo_tekstas2"
-                app:srcCompat="@drawable/termometras" />
-
-            <ImageView
-                android:id="@+id/lempa1"
-                android:layout_width="40dp"
-                android:layout_height="44dp"
-                android:layout_marginTop="28dp"
-                app:layout_constraintStart_toEndOf="@+id/pagrindas5"
-                app:layout_constraintTop_toBottomOf="@+id/komforto_tekstas"
-                app:srcCompat="@drawable/lempa" />
-
-            <ImageView
-                android:id="@+id/lempa2"
-                android:layout_width="33dp"
-                android:layout_height="33dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="44dp"
-                app:layout_constraintEnd_toStartOf="@+id/komfortas"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pagrindo_tekstas2"
-                app:srcCompat="@drawable/lempa" />
-
-            <ImageView
-                android:id="@+id/lempa"
-                android:layout_width="33dp"
-                android:layout_height="33dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toEndOf="@+id/pagrindas"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
-                app:srcCompat="@drawable/lempa" />
-
-            <ImageView
-                android:id="@+id/rutuliukas"
-                android:layout_width="37dp"
-                android:layout_height="33dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.028"
-                app:layout_constraintStart_toEndOf="@+id/lempa"
-                app:layout_constraintTop_toBottomOf="@+id/textView2"
-                app:srcCompat="@drawable/rutuliukas" />
 
             <View
                 android:id="@+id/linija1"
@@ -260,12 +182,12 @@
 
             <TextView
                 android:id="@+id/pagrindo_tekstas"
-                android:layout_width="351dp"
-                android:layout_height="166dp"
+                android:layout_width="355dp"
+                android:layout_height="219dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
-                android:text="Su skirtingų įdėklų ir dangčių derinių JUNG LB Management suteikia sprendimą beveik visoms funkcijoms, susijusioms su šviesa, šešėliu ir temperatūros kontrole. Modernizuojant esamus įrenginius, individualūs komponentai taip pat gali  būti pakeisti LB Management sistema, o kiti gali būti toliau naudojami."
+                android:text="LB-Management yra inovatyvi apšvietimo intensyvumo ir žaliuzių valdymo sistema, kuri naudoja „Clever Config“ programėlę. Ši programėlė leidžia valdyti apšvietimą ir žaliuzes privačiuose statiniuose per išmanųjį telefoną naudojant „Bluetooth Low Energy“ ryšį. Programėlė taip pat suteikia patogumą ir efektyvumą, leisdama nustatyti įvairius parametrus, tokius kaip išjungimo vėlinimas ir šviesumas."
                 android:textColor="#000"
                 android:textSize="17sp"
                 android:textStyle="normal"
@@ -274,87 +196,29 @@
                 app:layout_constraintTop_toBottomOf="@+id/linija1" />
 
             <TextView
-                android:id="@+id/pagrindo_tekstas2"
-                android:layout_width="355dp"
-                android:layout_height="65dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="sans-serif-light"
-                android:gravity="center"
-                android:text="Sistema valdoma rankiniu būdu, naudojant mygtukus, automatiškai su jutiklių pagalba, laikmačiais arba išmaniuoju telefonu."
-                android:textColor="#000"
-                android:textSize="17sp"
-                android:textStyle="normal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.537"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pagrindo_tekstas" />
-
-            <ImageView
-                android:id="@+id/skydas"
-                android:layout_width="35dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="44dp"
-                app:layout_constraintEnd_toStartOf="@+id/komfortas"
-                app:layout_constraintHorizontal_bias="0.272"
-                app:layout_constraintStart_toEndOf="@+id/termometras2"
-                app:layout_constraintTop_toBottomOf="@+id/pagrindo_tekstas2"
-                app:srcCompat="@drawable/skydas" />
-
-            <ImageView
-                android:id="@+id/telefonas"
-                android:layout_width="33dp"
-                android:layout_height="39dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="44dp"
-                app:layout_constraintStart_toEndOf="@+id/komfortas"
-                app:layout_constraintTop_toBottomOf="@+id/pagrindo_tekstas2"
-                app:srcCompat="@drawable/telefonas" />
-
-            <ImageView
-                android:id="@+id/kreditine"
-                android:layout_width="36dp"
-                android:layout_height="44dp"
-                android:layout_marginTop="44dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.026"
-                app:layout_constraintStart_toEndOf="@+id/telefonas"
-                app:layout_constraintTop_toBottomOf="@+id/pagrindo_tekstas2"
-                app:srcCompat="@drawable/kreditine" />
-
-            <TextView
                 android:id="@+id/komforto_tekstas"
-                android:layout_width="334dp"
-                android:layout_height="288dp"
+                android:layout_width="348dp"
+                android:layout_height="253dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
-                android:text="Pajunkite arba pritamsinkite šviesas, kontroliuokite žaliuzes arba temperatūrą - iš namų arba nuotuoliniu būdu. JUNG eNet SMART HOME yra idealus sprendimas norint daugiau patogumų ir apsaugos savo bute, name arba mažame ofise. Ne tik naujuose pastatuose bet taip pat modernizuojant, šita belaidė sistema rodo savo pilną potencialą. Ši sistema veikia belaidžiu būdu, bei yra pakankamai lanksti : Ji gali būti adaptuojama lengvai jeigu kambario naudojamas keičiasi ir nauji komponentai gali būti pridedami bet kokiu metu."
+                android:text="Ši sistema suteikia daug komforto ir saugumo namuose bei biuruose, įskaitant renovuojamus pastatus. Naudojant „eNet“ radijo bangomis valdomą sistemą ir „eNet SMART HOME“ programėlę, galima patogiai valdyti pastato funkcijas per išmanųjį telefoną, tiek vietiniu, tiek nuotoliniu būdu. Sistema lengvai įdiegiama, konfigūruojama, ir leidžia sujungti įvairių gamintojų prietaisus į vientisą tinklą. Taip pat palaiko valdymą balsu per „Amazon Alexa“ ir „Google Assistant“."
                 android:textColor="#000"
                 android:textSize="17sp"
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.493"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linija2" />
 
-            <ImageView
-                android:id="@+id/deimantas_nyptukai"
-                android:layout_width="78dp"
-                android:layout_height="39dp"
-                android:layout_marginTop="28dp"
-                app:layout_constraintEnd_toStartOf="@+id/pagrindas5"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/komforto_tekstas"
-                app:srcCompat="@drawable/deimantas_ir_nyptukai" />
-
             <TextView
                 android:id="@+id/premium_tekstas"
-                android:layout_width="354dp"
-                android:layout_height="247dp"
+                android:layout_width="342dp"
+                android:layout_height="290dp"
                 android:layout_marginTop="16dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
-                android:text="Visada puikus apšvietimas, automatiškai apšildomi kambariai ir daug daugiau apsaugos : KNX tai paverčia neįmanoma - įmanomu. JUNG Smart Visu Server suteikia dar daugiau patogumų ir kontrolės. Įgyvendinkite KNX procesus su išmaniuoju telefonu arba integruokite esamą pastato technologiją ir išmaniųjų namų sprendimus, tokius kaip Phillips Hue arba Sonos į išmaniąją technologiją. Su JUNG Smart VIsu Server, kontroliuoti visas funkcijas yra pakankamai lengva ir patogu."
+                android:text="JUNG HOME prietaisai naudoja „Bluetooth® SIG Mesh“ tinklą užtikrinti saugų duomenų perdavimą. Tai leidžia jiems veikti kaip siųstuvai ir imtuvai, perduodant komandas tinkle iki tikslo, net už tiesioginės ryšio aprėpties ribų. Ši lanksti sistema gali būti lengvai plėtojama per išmanųjį telefoną ir JUNG HOME programėlę. Integracija su „WORKS WITH mediola®“ atveria galimybes valdyti buities prietaisus balsu per „Amazon Alexa“ arba „Google Assistant“, taip pat internetu. Tai suteikia vartotojams daugybę galimybių valdyti namų elektroniką patogiai ir efektyviai."
                 android:textColor="#000"
                 android:textSize="17sp"
                 android:textStyle="normal"
@@ -373,32 +237,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pagrindas6" />
 
-            <ImageView
-                android:id="@+id/namas"
-                android:layout_width="37dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.042"
-                app:layout_constraintStart_toEndOf="@+id/pagrindas6"
-                app:layout_constraintTop_toBottomOf="@+id/premium_tekstas"
-                app:srcCompat="@drawable/namas" />
-
             <TextView
                 android:id="@+id/auksciausios_klases_tekstas"
-                android:layout_width="349dp"
-                android:layout_height="234dp"
-                android:layout_marginTop="20dp"
+                android:layout_width="330dp"
+                android:layout_height="216dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
-                android:text="Išmani, universali sistema pastatų automatizacijos kontrolei : Su begale galimybių individualizacijai, turinti aukščiausia apsaugos lygį, JUNG Visu Pro Server yra idealiausiai naudojama pranašesniuose privačiuose, bei funkciunaliuose pastatuose. Su SENEC integracija. Namų išmanioji energijos saugykla į namų automatiką, naudoti energiją galėsite taupiau. Dėl papildomos apsaugos, komunikacijos tinkle yra užšifruotos su KNX Secure."
+                android:text="KNX yra pasaulinis namų ir pastatų valdymo standartas, naudojamas daugybėje šalių. Ši sistema sujungia visas namo valdymo sritis - nuo apšvietimo iki temperatūros ir žaliuzių. Ji leidžia automatizuoti namo sistemas ir reguliuoti pagal iš anksto nustatytus algoritmus, tačiau sprendimas apie išmaniuosius namus turėtų būti priimamas jau pastato projektavimo etape."
                 android:textColor="#000"
                 android:textSize="17sp"
                 android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintHorizontal_bias="0.493"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linija4" />
+                app:layout_constraintTop_toBottomOf="@+id/linija4"
+                app:layout_constraintVertical_bias="0.0" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
