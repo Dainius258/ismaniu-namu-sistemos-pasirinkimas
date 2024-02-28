@@ -16,8 +16,8 @@
     <string name="pagrindines_funkcijos">Pagrindinės Funkcijos</string>
     <string name="ap_vietimo_valdymas">Apšvietimo valdymas</string>
     <string name="aliuz_s_langin_s_tentai_stoglangiai">Žaliuzės, langinės, tentai, stoglangiai</string>
-    <string name="sildymas" >Šildymo, ventiliacijos, oro kondicionavimo valdymas</string>
-    <string name="scenos" >Scenų valdymas</string>
+    <string name="sildymas">Šildymo, ventiliacijos, oro kondicionavimo valdymas</string>
+    <string name="scenos">Scenų valdymas</string>
     <string name="fifth_dropdown_hint">Energijos suvartojimo matavimas</string>
     <string name="weather">Oru prognozės</string>
     <string name="languDuruStebejimas">Langų ir durų stebėjimas</string>

@@ -1,9 +1,13 @@
 package com.example.ismaniu_namu_sistemu_pasirinkimas
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
 
 import android.widget.MultiAutoCompleteTextView
+import com.example.ismaniu_namu_sistemu_pasirinkimas.databinding.KlausimynoPabaigaBinding
 
 class KlausimynoPuslapis : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -178,5 +182,16 @@ class KlausimynoPuslapis : AppCompatActivity() {
         val thirdCheckedStateArray = thirdArrayAdapter.getCheckBoxState()
         val checkedStateArray = arrayAdapter.getCheckBoxState()
 
+        val myButton = findViewById<Button>(R.id.ParinktiSprendimaNyptukas) // Replace `yourButtonId` with the actual ID of your button
+        myButton.setOnClickListener {
+            val intent = Intent(this, KlausimynoPabaigaBinding::class.java)
+            startActivity(intent)
+        }
+
+        val backButton = findViewById<ImageView>(R.id.AtgalNyptukas)
+        backButton.setOnClickListener {
+            val intent = Intent(this, FirstPage::class.java)
+            startActivity(intent)
+        }
     }
 }
