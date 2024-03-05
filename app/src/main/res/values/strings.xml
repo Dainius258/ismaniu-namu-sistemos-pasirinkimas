@@ -31,11 +31,11 @@
     <string name="diagraSudarymas">Diagramų sudarymas</string>
     <string name="veiksmuSekos">Veiksmų sękos</string>
     <string name="valdymo">Valdymas</string>
-    <string name="ismanusTel">Išmanioju telefonu</string>
+    <string name="ismanusTel">Išmaniuoju telefonu</string>
     <string name="plansete">Planšete</string>
     <string name="nuotolinisVald">Nuotolinis valdymas</string>
     <string name="ismanusAsistentas">Išmanūs asistentai</string>
-    <string name="pcNarsykle">Valdymas Kompiuteriu/naršykle</string>
+    <string name="pcNarsykle">Valdymas Kompiuteriu/naršyklėje</string>
     <string name="klausimynoMygtukas">Parinkti Sprendima</string>
     <string name="kokiosStatybos">Kokios statybos namas</string>
     <string name="valdymasIB">Valdymas</string>
@@ -53,7 +53,7 @@
     </string-array>
     <!--Išmanūs asistentai-->
     <string-array name="isHelpers">
-        <item>Google Assistan</item>
+        <item>Google Assistant</item>
         <item>Amazon Alexa</item>
     </string-array>
     <!--Kompiuteriu/naršykle-->
@@ -97,11 +97,11 @@
         <item>Iki 34 loginių funkcijų(AND, OR, XOR, if-then)</item>
         <item>Savaip aprašyti scenarijai</item>
         <item>Neriboti if-then loginiai veiksmai</item>
-        <item>Administratorius su iki 150 vartotojų su laisvai apibrėžimais leidimais</item>
+        <item>Administratorius su iki 150 vartotojų ir laisvai apibrėžimais leidimais</item>
     </string-array>
     <!--Signalizacijos žinutės-->
     <string-array name="sigZinutes">
-        <item>Elektronio pašto žinutes.</item>
+        <item>Elektroninio pašto žinutes.</item>
     </string-array>
     <!--Vartotojų valdymas-->
     <string-array name="varValdymas">
