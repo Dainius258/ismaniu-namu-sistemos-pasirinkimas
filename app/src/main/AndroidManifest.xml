@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <application
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -15,26 +16,41 @@
         android:theme="@style/Theme.Ismaniunamusistemupasirinkimas"
         tools:targetApi="31">
         <activity
-            android:name=".KlausimynoPuslapis"
-            android:exported="true" />
-
+            android:name=".KNX_Valdymo_Sistema"
+            android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:label="@string/title_activity_main2" /> <!-- android:name=".MainActivity" -->
-        <!-- android:name=".KlausimynoPuslapis" -->
+            android:name=".JUNGHOME"
+            android:exported="false" />
         <activity
-            android:name=".PabaigosPsl"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.Ismaniunamusistemupasirinkimas">
+            android:name=".eNET_SmartHome"
+            android:exported="false" />
+        <activity
+            android:name=".LB_Management"
+            android:exported="false" />
+        <activity
+            android:name=".SystemInfo"
+            android:exported="false" />
+        <activity
+            android:name=".FirstPage"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".KlausimynoPuslapis"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Ismaniunamusistemupasirinkimas" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_main2" />
+        <activity
+            android:name=".PabaigosPsl"
+            android:exported="true" />
     </application>
 
 </manifest>
