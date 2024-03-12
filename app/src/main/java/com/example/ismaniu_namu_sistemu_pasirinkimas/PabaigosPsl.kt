@@ -176,35 +176,35 @@ class PabaigosPsl : AppCompatActivity() {
         drawLine(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 75f)
         canvas.drawBitmap(photoKnx, null, RectF(photoFirm4X, photoFirm4Y, photoFirm4X + photoFirm4Width, photoFirm4Y + photoFirm4Height), null)
 
-        // Add clickable link "Montuotuojas Rimvydas Velička"
+        // Info apie Rimvyda
         val knxLinkText1 = "Montuotojas Rimvydas Velička"
-        val knxLinkUrl1 = "https://kontaktai.jung.lt/montuotojai/jung-home-diegejai/rimvydas-velicka/"
-        paint.textSize = 24f
-        drawLink(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 150f, knxLinkText1, knxLinkUrl1)
+        paint.textSize = 14f
+        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
+        canvas.drawText(knxLinkText1, xmontuotuojai4 + 50, ymontuotuojai4, paint)
 
-        // Add clickable link "Montuotuojas Rimvydas Velička"
+        // Info apie Dainiu
         val knxLinkText2 = "Montuotojas Dainius Jurgulis"
-        val knxLinkUrl2 = "https://kontaktai.jung.lt/montuotojai/jung-home-diegejai/dainius-jurgulis/"
-        paint.textSize = 24f
-        drawLink(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 200f, knxLinkText2, knxLinkUrl2)
+        paint.textSize = 14f
+        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
+        canvas.drawText(knxLinkText2, xmontuotuojai4 + 100, ymontuotuojai4, paint)
 
-        // Add clickable link "Montuotuojas Rimvydas Velička"
+        // Info apie Anatolij
         val knxLinkText3 = "Montuotojas Anatolij Volodko"
-        val knxLinkUrl3 = "https://kontaktai.jung.lt/montuotojai/jung-home-diegejai/anatolij-volodko/"
-        paint.textSize = 24f
-        drawLink(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 250f, knxLinkText2, knxLinkUrl3)
+        paint.textSize = 14f
+        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
+        canvas.drawText(knxLinkText3, xmontuotuojai4 + 150, ymontuotuojai4, paint)
 
-        // Add clickable link "Montuotuojas Rimvydas Velička"
+        // Info apie Valerij
         val knxLinkText4 = "Montuotojas Valerij Lukoic"
-        val knxLinkUrl4 = "https://kontaktai.jung.lt/montuotojai/jung-home-diegejai/valerij-lukoic/"
-        paint.textSize = 24f
-        drawLink(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 300f, knxLinkText4, knxLinkUrl4)
+        paint.textSize = 14f
+        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
+        canvas.drawText(knxLinkText4, xmontuotuojai4 + 200, ymontuotuojai4, paint)
 
-        // Add clickable link "Montuotuojas Rimvydas Velička"
+        // Info apie Dovyda
         val knxLinkText5 = "Montuotojas Dovydas Kančauskis"
-        val knxLinkUrl5 = "https://kontaktai.jung.lt/montuotojai/jung-home-diegejai/dovydas-kancauskis/"
-        paint.textSize = 24f
-        drawLink(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 350f, knxLinkText5, knxLinkUrl5)
+        paint.textSize = 14f
+        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
+        canvas.drawText(knxLinkText5, xmontuotuojai4 + 250, ymontuotuojai4, paint)
 
         document.finishPage(page)
 
@@ -234,18 +234,6 @@ class PabaigosPsl : AppCompatActivity() {
         }
         val gap = 25f
         canvas.drawLine(startX, startY + gap, startX + 400f, startY + gap, paint)
-    }
-
-    private fun drawLink(canvas: Canvas, x: Float, y: Float, text: String, url: String) {
-        val paint = Paint().apply {
-            color = Color.BLUE
-            textSize = 32f
-            isUnderlineText = true
-        }
-        canvas.drawText(text, x, y, paint)
-        val rect = RectF(x, y - paint.textSize, x + paint.measureText(text), y)
-        // Store the clickable region and the URL in a data structure to handle clicks
-        clickableRegions.add(ClickableRegion(rect, url))
     }
 
     // Handle click events
