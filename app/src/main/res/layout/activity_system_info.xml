@@ -15,11 +15,11 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <TextView
-                android:id="@+id/pagrindas6"
-                android:layout_width="267dp"
-                android:layout_height="29dp"
-                android:layout_marginTop="24dp"
+            <Button
+                android:id="@+id/btnKnxsistema"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
                 android:shadowColor="#A6A6A6"
@@ -27,48 +27,54 @@
                 android:shadowDy="5"
                 android:shadowRadius="6"
                 android:text="KNX valdymo sistema"
-                android:textColor="#000"
+                android:backgroundTint="@color/darkblue"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                app:cornerRadius="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/premium_tekstas" />
 
-            <TextView
-                android:id="@+id/pagrindas5"
+            <Button
+                android:id="@+id/btnJunghome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
                 android:shadowColor="#A6A6A6"
                 android:shadowDx="5"
                 android:shadowDy="5"
                 android:shadowRadius="6"
-                android:text="JUNG HOME"
-                android:textColor="#000"
+                android:text="JUNG Home"
+                android:backgroundTint="@color/darkblue"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                app:cornerRadius="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/komforto_tekstas" />
 
-            <TextView
-                android:id="@+id/komfortas"
+            <Button
+                android:id="@+id/btnEnetsmarthome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
                 android:shadowColor="#A6A6A6"
                 android:shadowDx="5"
                 android:shadowDy="5"
                 android:shadowRadius="6"
-                android:text="eNet SMART HOME"
-                android:textColor="#000"
+                android:text="eNet Smart Home"
+                android:backgroundTint="@color/darkblue"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                app:cornerRadius="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +88,7 @@
                 android:background="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/komfortas" />
+                app:layout_constraintTop_toBottomOf="@+id/btnEnetsmarthome" />
 
             <View
                 android:id="@+id/linija3"
@@ -92,7 +98,7 @@
                 android:background="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pagrindas5" />
+                app:layout_constraintTop_toBottomOf="@+id/btnJunghome" />
 
             <ImageView
                 android:id="@+id/jung"
@@ -151,8 +157,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/logos" />
 
-            <TextView
-                android:id="@+id/pagrindas"
+            <Button
+                android:id="@+id/btnLbmanagement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -163,9 +169,11 @@
                 android:shadowDy="5"
                 android:shadowRadius="6"
                 android:text="LB-Management"
-                android:textColor="#000"
+                android:backgroundTint="@color/darkblue"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                app:cornerRadius="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -178,7 +186,7 @@
                 android:background="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pagrindas" />
+                app:layout_constraintTop_toBottomOf="@+id/btnLbmanagement" />
 
             <TextView
                 android:id="@+id/pagrindo_tekstas"
@@ -235,7 +243,7 @@
                 android:background="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/pagrindas6" />
+                app:layout_constraintTop_toBottomOf="@+id/btnKnxsistema" />
 
             <TextView
                 android:id="@+id/auksciausios_klases_tekstas"
