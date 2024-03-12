@@ -16,22 +16,22 @@
         android:theme="@style/Theme.Ismaniunamusistemupasirinkimas"
         tools:targetApi="31">
         <activity
-            android:name=".KNX_Valdymo_Sistema"
+            android:name=".ActivityKnxsistema"
             android:exported="false" />
         <activity
-            android:name=".JUNGHOME"
+            android:name=".ActivityJunghome"
             android:exported="false" />
         <activity
-            android:name=".ENET_SmartHome"
+            android:name=".ActivityEnetSmartHome"
             android:exported="false" />
         <activity
-            android:name=".LB_Management"
+            android:name=".ActivityLbmanagement"
             android:exported="false" />
         <activity
-            android:name=".SystemInfo"
+            android:name=".ActivitySystemInfo"
             android:exported="false" />
         <activity
-            android:name=".FirstPage"
+            android:name=".ActivityMain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

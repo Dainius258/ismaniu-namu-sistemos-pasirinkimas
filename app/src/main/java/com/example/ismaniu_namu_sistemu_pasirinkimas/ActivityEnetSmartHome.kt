@@ -5,14 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 
-class LB_Management : AppCompatActivity() {
+class ActivityEnetSmartHome : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lb_management)
-        val backButton: ImageView = findViewById(R.id.tvAtgalLb)
+        setContentView(R.layout.activity_enet_smart_home)
+        val backButton: ImageView = findViewById(R.id.tvAtgalEnet)
 
         backButton.setOnClickListener {
-            val intent = Intent(this, SystemInfo::class.java)
+            val intent = Intent(this, ActivitySystemInfo::class.java)
             startActivity(intent)
         }
     }

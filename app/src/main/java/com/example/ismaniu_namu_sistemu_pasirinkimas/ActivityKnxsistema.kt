@@ -5,14 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 
-class JUNGHOME : AppCompatActivity() {
+class ActivityKnxsistema : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_junghome)
-        val backButton: ImageView = findViewById(R.id.tvAtgalJung)
+        setContentView(R.layout.activity_knx_valdymo_sistema)
+        val backButton: ImageView = findViewById(R.id.tvAtgalKnx)
 
         backButton.setOnClickListener {
-            val intent = Intent(this, SystemInfo::class.java)
+            val intent = Intent(this, ActivitySystemInfo::class.java)
             startActivity(intent)
         }
     }

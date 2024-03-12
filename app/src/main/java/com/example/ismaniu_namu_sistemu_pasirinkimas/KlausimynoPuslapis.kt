@@ -193,7 +193,7 @@ class KlausimynoPuslapis : AppCompatActivity() {
 
         val backButton = findViewById<ImageView>(R.id.AtgalNyptukas)
         backButton.setOnClickListener {
-            val intent = Intent(this, FirstPage::class.java)
+            val intent = Intent(this, ActivityMain::class.java)
             startActivity(intent)
         }
     }
