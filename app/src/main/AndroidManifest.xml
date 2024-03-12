@@ -22,7 +22,7 @@
             android:name=".JUNGHOME"
             android:exported="false" />
         <activity
-            android:name=".eNET_SmartHome"
+            android:name=".ENET_SmartHome"
             android:exported="false" />
         <activity
             android:name=".LB_Management"

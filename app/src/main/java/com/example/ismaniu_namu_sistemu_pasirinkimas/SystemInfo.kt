@@ -20,7 +20,7 @@ class SystemInfo : AppCompatActivity() {
             startActivity(intent)
         }
         enetButton.setOnClickListener {
-            val intent = Intent(this, eNET_SmartHome::class.java)
+            val intent = Intent(this, ENET_SmartHome::class.java)
             startActivity(intent)
         }
         jungButton.setOnClickListener {
