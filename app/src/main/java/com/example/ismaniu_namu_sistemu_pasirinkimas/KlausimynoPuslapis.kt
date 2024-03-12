@@ -187,7 +187,7 @@ class KlausimynoPuslapis : AppCompatActivity() {
 
         val myButton = findViewById<Button>(R.id.ParinktiSprendimaNyptukas) // Replace `yourButtonId` with the actual ID of your button
         myButton.setOnClickListener {
-            val intent = Intent(this, KlausimynoPabaigaBinding::class.java)
+            val intent = Intent(this, PabaigosPsl::class.java)
             startActivity(intent)
         }
 
