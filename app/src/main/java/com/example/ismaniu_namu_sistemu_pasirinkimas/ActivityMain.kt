@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ismaniu_namu_sistemu_pasirinkimas.databinding.ActivityFirstPageBinding
 
-class FirstPage : AppCompatActivity() {
+class ActivityMain : AppCompatActivity() {
     private lateinit var binding: ActivityFirstPageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +16,7 @@ class FirstPage : AppCompatActivity() {
         // Assuming your button ID is "backButton"
         binding.SystemInfoNyptukas.setOnClickListener {
             // Create Intent to go back to the MainActivity
-            val intent = Intent(this, SystemInfo::class.java)
+            val intent = Intent(this, ActivitySystemInfo::class.java)
             startActivity(intent)
         }
 

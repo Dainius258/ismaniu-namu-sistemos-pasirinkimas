@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".FirstPage">
+    tools:context=".ActivityMain">
 
 
     <!--Toolbar klaida-->
@@ -63,7 +63,7 @@
                 android:shadowDx="6"
                 android:shadowDy="6"
                 android:shadowRadius="6"
-                android:text="Sumani namų technologija su JUNG"
+                android:text="Sumani namų technologija"
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:textStyle=""
@@ -93,15 +93,15 @@
 
             <TextView
                 android:id="@+id/textView5"
-                android:layout_width="371dp"
+                android:layout_width="403dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="12dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
                 android:text="Padėsim jums išsirinkti tinkamiausią sistemą, jums tik reikės pasirinkti specifikacija ir pasiūlysim geriausią variantą"
                 android:textColor="#000"
-                android:textSize="17sp"
-                android:textStyle=""
+                android:textSize="20sp"
+                android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"
@@ -114,9 +114,9 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
-                android:text="Nuo paprastos šviesų ir atspalvių valdymo sistemos iki belaidžio JUNG eNet Smart Home ir laidinio KNX sistemos privatiems ir funkcionaliems pastatams. Kas sujungia visas JUNG Smart namų sistemas tai jų aukšto lygio funkcionalumas, lengvas valdymas, lankstumas ir specialus JUNG dizainas."
+                android:text="Nuo paprastos šviesų ir atspalvių valdymo sistemos su LB Management iki belaidės JUNG eNet Smart Home ir laidinės KNX sistemos privatiems ir funkcionaliems pastatams."
                 android:textColor="#000"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 android:textStyle="normal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

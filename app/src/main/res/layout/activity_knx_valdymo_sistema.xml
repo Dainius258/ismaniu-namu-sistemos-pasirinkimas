@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".KNX_Valdymo_Sistema">
+    tools:context=".ActivityKnxsistema">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/ivAtgalKnx"
         android:layout_width="113dp"
         android:layout_height="58dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
         android:textStyle=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/ivAtgalKnx" />
 
     <TextView
         android:id="@+id/textView10"
