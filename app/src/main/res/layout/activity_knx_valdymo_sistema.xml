@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityKnxsistema">
+    android:fillViewport="true">
 
+    <!-- This ConstraintLayout contains all the content -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ActivityKnxsistema">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="113dp"
+            android:layout_height="58dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/atgal_nyptukas" />
     <ImageView
         android:id="@+id/ivAtgalKnx"
         android:layout_width="113dp"
@@ -14,44 +27,44 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/atgal_nyptukas" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:shadowColor="#A6A6A6"
-        android:shadowDx="5"
-        android:shadowDy="5"
-        android:shadowRadius="6"
-        android:text="KNX Valdymo Sistema"
-        android:textColor="#000"
-        android:textSize="30sp"
-        android:textStyle=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivAtgalKnx" />
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:shadowColor="#A6A6A6"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="6"
+            android:text="KNX Valdymo Sistema"
+            android:textColor="#000"
+            android:textSize="30sp"
+            android:textStyle=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivAtgalKnx" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="406dp"
-        android:layout_height="1811dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="sans-serif-light"
-        android:gravity="center"
-        android:shadowColor="#A6A6A6"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="1"
-        android:text="KNX – atviras pasaulinis namų ir pastatų valdymo ir automatizavimo standartas. KNX yra patvirtintas kaip Europos standartas (CENELEC EN 50090 ir CEN EN 13.321-1), tarptautinis standartas (ISO/IEC 14.543-3), Kinijos standartas (GB/T 20965), JAV standartas (ANSI/ ASHRAE 135). Šis standartas grindžiamas EIB/instabus, EHS, BatiBUS standartais. KNX standartą oficialiai pripažįsta ir naudoja net 424 gamintojai 44 valstybėse bei daugiau nei 70 000 partnerių 163 šalyse.
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="383dp"
+            android:layout_height="1960dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:shadowColor="#A6A6A6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="1"
+            android:text="KNX – atviras pasaulinis namų ir pastatų valdymo ir automatizavimo standartas. KNX yra patvirtintas kaip Europos standartas (CENELEC EN 50090 ir CEN EN 13.321-1), tarptautinis standartas (ISO/IEC 14.543-3), Kinijos standartas (GB/T 20965), JAV standartas (ANSI/ ASHRAE 135). Šis standartas grindžiamas EIB/instabus, EHS, BatiBUS standartais. KNX standartą oficialiai pripažįsta ir naudoja net 424 gamintojai 44 valstybėse bei daugiau nei 70 000 partnerių 163 šalyse.
 Užtenka vienos KNX sistemos, kuri gali sujungti visas namo valdymo sritis į visumą:
 Apšvietimas. Galima valdyti apšvietimą bet kuriuo paros metu skirtingose
 išmaniojo namo patalpose.
 Mikroklimatas. Vėdinimo, šildymo, oro kondicionavimo ir žaliuzių sistemos
 tarpusavyje bendradarbiauja ir taip sukuria optimalų patalpų mikroklimatą.
 Temperatūra. Patalpose palaikoma optimali temperatūra, kiekvienos patalpos temperatūra reguliuojama atskirai pagal poreikius ir taip sutaupoma energijos, nes nereikia šildyti patalpų kai nieko nėra pastate arba šildomos tik tos patalpos, kuriose yra žmonių.
-Žaliuzės. Galima nustatyti norimas funkcijas atsižvelgiant į paros metą, metų laikus ar pasirinktą valdymo būdą, kai pavyzdžiui žaliuzės reaguoja į apšvietą, oro sąlygas lauke ar patalpų  temperatūrą.
+Žaliuzės. Galima nustatyti norimas funkcijas atsižvelgiant į paros metą, metų laikus ar pasirinktą valdymo būdą, kai pavyzdžiui žaliuzės reaguoja į apšvietą, oro sąlycas lauke ar patalpų  temperatūrą.
 Saugos sistema. Apsaugos sistema leidžia imituoti žmonių buvimą patalpose, stebėti pastatą ir teritoriją išmaniajame įrenginyje.
 Daugialypės terpės įranga. Namų pramogas: garso aparatūrą, televizorių, namų kino sistemą ir kitus buitinius prietaisus – galima sujungti į vieną. Patogi integracija leidžia klausytis skirtingos, įvairaus garso lygio muzikos atskirose patalpose.
 KNX sistemoje visi davikliai sujungiami į vieną bendrą sistemą KNX kabeliu, o įrenginiai maitinami prijungiant prie elektros tinklo. Šioje sistemoje vienas daviklis gali būti naudojamas kelioms sistemoms (pvz., laiko daviklis – apšvietimui ir žaliuzėms valdyti).
@@ -59,31 +72,101 @@ Išmanieji namai valdo skirtingas namo funkcijas naudodami skirtingus valdymo
 elementus, susijungiančius į vientisą KNX sistemą ir veikiančius sinergijos principu (1.1 pav.).
 Kad namo sistemos taptų automatizuotos ir veiktų pagal iš anksto suprogramuotus algoritmus, visos inžinerinės sistemos turi turėti bendrą sujungimo protokolą, kuris apjungia sistemas ir leidžia pasiekti sinergiją. Todėl, jei norima turėti išmaniuosius namus, reikia apsispręsti konkrečiame būsto projektavimo etape, kai rengiamas architektūrinis ir inžinerinis pastato projektas.
 "
-        android:textColor="#000"
-        android:textSize="23sp"
-        android:textStyle=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            android:textColor="#000"
+            android:textSize="23sp"
+            android:textStyle=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linija1" />
 
-    <View
-        android:id="@+id/linija1"
-        android:layout_width="294dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="4dp"
-        android:background="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        <View
+            android:id="@+id/linija1"
+            android:layout_width="294dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/jung" />
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/jung" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/KnxMontuotojai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:shadowColor="#A6A6A6"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="6"
+            android:text="Montuotojai"
+            android:textColor="#000"
+            android:textSize="30sp"
+            android:textStyle=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <ImageView
+            android:id="@+id/UabOdri"
+            android:layout_width="364dp"
+            android:layout_height="73dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BustoAuto"
+            app:srcCompat="@drawable/uab_odri" />
+
+        <ImageView
+            android:id="@+id/SviesosStudija"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/InzinieriuSpGr"
+            app:srcCompat="@drawable/sviesos_studija_thinklight" />
+
+        <ImageView
+            android:id="@+id/BustoAuto"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/KnxMontuotojai"
+            app:srcCompat="@drawable/busto_automatika" />
+
+        <ImageView
+            android:id="@+id/IsmanusSprendimai"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SviesosStudija"
+            app:srcCompat="@drawable/ismanus_sprendimai" />
+
+        <ImageView
+            android:id="@+id/InzinieriuSpGr"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/UabOdri"
+            app:srcCompat="@drawable/inzineriniu_sp_grupe" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
