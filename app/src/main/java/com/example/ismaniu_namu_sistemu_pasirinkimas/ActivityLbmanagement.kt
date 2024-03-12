@@ -9,7 +9,7 @@ class ActivityLbmanagement : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lb_management)
-        val backButton: ImageView = findViewById(R.id.tvAtgalLb)
+        val backButton: ImageView = findViewById(R.id.ivAtgalLb)
 
         backButton.setOnClickListener {
             val intent = Intent(this, ActivitySystemInfo::class.java)

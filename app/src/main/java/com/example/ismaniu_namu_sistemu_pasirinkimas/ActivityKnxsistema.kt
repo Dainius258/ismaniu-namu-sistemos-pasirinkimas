@@ -9,7 +9,7 @@ class ActivityKnxsistema : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_knx_valdymo_sistema)
-        val backButton: ImageView = findViewById(R.id.tvAtgalKnx)
+        val backButton: ImageView = findViewById(R.id.ivAtgalKnx)
 
         backButton.setOnClickListener {
             val intent = Intent(this, ActivitySystemInfo::class.java)

@@ -9,7 +9,7 @@ class ActivityEnetSmartHome : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_enet_smart_home)
-        val backButton: ImageView = findViewById(R.id.tvAtgalEnet)
+        val backButton: ImageView = findViewById(R.id.ivAtgalEnet)
 
         backButton.setOnClickListener {
             val intent = Intent(this, ActivitySystemInfo::class.java)

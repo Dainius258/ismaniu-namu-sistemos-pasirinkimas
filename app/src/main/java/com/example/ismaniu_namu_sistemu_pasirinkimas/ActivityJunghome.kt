@@ -9,7 +9,7 @@ class ActivityJunghome : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_junghome)
-        val backButton: ImageView = findViewById(R.id.tvAtgalJung)
+        val backButton: ImageView = findViewById(R.id.ivAtgalJung)
 
         backButton.setOnClickListener {
             val intent = Intent(this, ActivitySystemInfo::class.java)
