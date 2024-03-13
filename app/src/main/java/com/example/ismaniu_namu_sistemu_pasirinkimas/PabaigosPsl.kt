@@ -88,7 +88,7 @@ class PabaigosPsl : AppCompatActivity() {
         paint.textSize = 84f
         paint.textAlign = Paint.Align.CENTER // Center the text
 
-        val subtitle = "Galimos sistemos pagal jūsų pasirinktus kriterijus :"
+        val subtitle = "Žinomi montuotojai galintys įrengti jūsų pasirinktą sistemą"
         val xTitle = 540f
         val yTitle = 150f
 
@@ -177,34 +177,124 @@ class PabaigosPsl : AppCompatActivity() {
         canvas.drawBitmap(photoKnx, null, RectF(photoFirm4X, photoFirm4Y, photoFirm4X + photoFirm4Width, photoFirm4Y + photoFirm4Height), null)
 
         // Info apie Rimvyda
-        val knxLinkText1 = "Montuotojas Rimvydas Velička"
-        paint.textSize = 14f
-        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
-        canvas.drawText(knxLinkText1, xmontuotuojai4 + 50, ymontuotuojai4, paint)
+        val jungLinkText1 = "UAB Odri ︱ El-paštas : info@odri.lt ︱ Telefono nr. : +370 652 04021"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(jungLinkText1, xmontuotuojai1 + 400, ymontuotuojai1 + 100, paint)
 
         // Info apie Dainiu
-        val knxLinkText2 = "Montuotojas Dainius Jurgulis"
-        paint.textSize = 14f
-        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
-        canvas.drawText(knxLinkText2, xmontuotuojai4 + 100, ymontuotuojai4, paint)
+        val jungLinkText2 = "Šviesos studija THINKLIGHT ︱ El-paštas : info@thinklight.lt ︱ Telefono nr. : +370 665 11403"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(jungLinkText2, xmontuotuojai1 + 400, ymontuotuojai1 + 125, paint)
 
         // Info apie Anatolij
-        val knxLinkText3 = "Montuotojas Anatolij Volodko"
-        paint.textSize = 14f
-        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
-        canvas.drawText(knxLinkText3, xmontuotuojai4 + 150, ymontuotuojai4, paint)
+        val jungLinkText3 = "Būsto automatika ︱ El-paštas : gediminas.jovaisa@bustoautomatika.lt ︱ Telefono nr. : +370 659 29904"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(jungLinkText3, xmontuotuojai1 + 400, ymontuotuojai1 + 150, paint)
 
         // Info apie Valerij
-        val knxLinkText4 = "Montuotojas Valerij Lukoic"
-        paint.textSize = 14f
-        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
-        canvas.drawText(knxLinkText4, xmontuotuojai4 + 200, ymontuotuojai4, paint)
+        val jungLinkText4 = "Išmanūs sprendimai ︱ El-paštas : info@ismanussprendimai.lt ︱ Telefono nr. : +370 672 66488"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(jungLinkText4, xmontuotuojai1 + 400, ymontuotuojai1 +175, paint)
 
         // Info apie Dovyda
-        val knxLinkText5 = "Montuotojas Dovydas Kančauskis"
-        paint.textSize = 14f
-        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
-        canvas.drawText(knxLinkText5, xmontuotuojai4 + 250, ymontuotuojai4, paint)
+        val jungLinkText5 = "Inžinerinių sprendimų grupė ︱ El-paštas : info@isg.lt ︱ Telefono nr. : +370 698 73400"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(jungLinkText5, xmontuotuojai1 + 400, ymontuotuojai1 +200, paint)
+
+        // Info apie Rimvyda
+        val enetLinkText1 = "Inžinerinių sprendimų grupė ︱ El-paštas : info@isg.lt ︱ Telefono nr. : +370 698 73400"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(enetLinkText1, xmontuotuojai2 + 400, ymontuotuojai2 + 100, paint)
+
+        // Info apie Dainiu
+        val enetLinkText2 = "Pažangi namų automatika ︱ El-paštas : info@iha.lt ︱ Telefono nr. : +370 680 15265"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(enetLinkText2, xmontuotuojai2 + 400, ymontuotuojai2 + 125, paint)
+
+        // Info apie Anatolij
+        val enetLinkText3 = "Vimova ︱ El-paštas : info@vimova.lt ︱ Telefono nr. : +370 644 99571"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(enetLinkText3, xmontuotuojai2 + 400, ymontuotuojai2 + 150, paint)
+
+        // Info apie Valerij
+        val enetLinkText4 = "ATEA ︱ El-paštas : Aurimas.petrutis@atea.lt ︱ Telefono nr. : +370 682 55048"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(enetLinkText4, xmontuotuojai2 + 400, ymontuotuojai2 +175, paint)
+
+        // Info apie Dovyda
+        val enetLinkText5 = "Elektros architektūra (tik projektavimas) ︱ El-paštas : gediminas@earchitektura.lt ︱ Telefono nr. : +370 672 92600"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(enetLinkText5, xmontuotuojai2 + 400, ymontuotuojai2 +200, paint)
+
+        // Info apie Rimvyda
+        val lbLinkText1 = "UAB Odri ︱ El-paštas : info@odri.lt ︱ Telefono nr. : +370 652 04021"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(lbLinkText1, xmontuotuojai3 + 400, ymontuotuojai3 + 100, paint)
+
+        // Info apie Dainiu
+        val lbLinkText2 = "Šviesos studija THINKLIGHT ︱ El-paštas : info@thinklight.lt ︱ Telefono nr. : +370 665 11403"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(lbLinkText2, xmontuotuojai3 + 400, ymontuotuojai3 + 125, paint)
+
+        // Info apie Anatolij
+        val lbLinkText3 = "Būsto automatika ︱ El-paštas : gediminas.jovaisa@bustoautomatika.lt ︱ Telefono nr. : +370 659 29904"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(lbLinkText3, xmontuotuojai3 + 400, ymontuotuojai3 + 150, paint)
+
+        // Info apie Valerij
+        val lbLinkText4 = "Išmanūs sprendimai ︱ El-paštas : info@ismanussprendimai.lt ︱ Telefono nr. : +370 672 66488"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(lbLinkText4, xmontuotuojai3 + 400, ymontuotuojai3 +175, paint)
+
+        // Info apie Dovyda
+        val lbLinkText5 = "Inžinerinių sprendimų grupė ︱ El-paštas : info@isg.lt ︱ Telefono nr. : +370 698 73400"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(lbLinkText5, xmontuotuojai3 + 400, ymontuotuojai3 +200, paint)
+
+        // Info apie Rimvyda
+        val knxLinkText1 = "Montuotojas Rimvydas Velička ︱ El-paštas : rimkasss@gmail.com ︱ Telefono nr. : +370 622 93906"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(knxLinkText1, xmontuotuojai4 + 400, ymontuotuojai4 + 100, paint)
+
+        // Info apie Dainiu
+        val knxLinkText2 = "Montuotojas Dainius Jurgulis ︱ El-paštas : dovydas.kancauskis@gmail.com ︱ Telefono nr. : +370 629 22779"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(knxLinkText2, xmontuotuojai4 + 400, ymontuotuojai4 + 125, paint)
+
+        // Info apie Anatolij
+        val knxLinkText3 = "Montuotojas Anatolij Volodko ︱ El-paštas : valerluko@gmail.com ︱ Telefono nr. : +370 675 84765"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(knxLinkText3, xmontuotuojai4 + 400, ymontuotuojai4 + 150, paint)
+
+        // Info apie Valerij
+        val knxLinkText4 = "Montuotojas Valerij Lukoic ︱ El-paštas : eltolikas@gmail.com ︱ Telefono nr. : +370 687 59929"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(knxLinkText4, xmontuotuojai4 + 400, ymontuotuojai4 +175, paint)
+
+        // Info apie Dovyda
+        val knxLinkText5 = "Montuotojas Dovydas Kančauskis ︱ El-paštas : djurgulis@gmail.com ︱ Telefono nr. : +370 659 53820"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas.drawText(knxLinkText5, xmontuotuojai4 + 400, ymontuotuojai4 +200, paint)
 
         document.finishPage(page)
 
