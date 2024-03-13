@@ -21,21 +21,53 @@ import android.content.Intent
 import android.net.Uri
 import android.widget.Toast
 import android.view.MotionEvent
+import android.view.View
+import android.widget.ListView
+
 class PabaigosPsl : AppCompatActivity() {
 
     private val REQUEST_CODE = 1232
     private lateinit var btnCreatePdf: Button
     private var count = 1 // Move count variable here to persist between button clicks
 
+    private lateinit var checkboxAdapter: CheckboxAdapter
+    private lateinit var listView: ListView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.klausimyno_pabaiga)
+
+// HOUSE SYSTEM BUTTONS
+        val buttonSystem1 = findViewById<Button>(R.id.button2)
+        val buttonSystem2 = findViewById<Button>(R.id.button3)
+        val buttonSystem3 = findViewById<Button>(R.id.button4)
+        val buttonSystem4 = findViewById<Button>(R.id.button5)
+
+        // Paslepti mygtukus
+        val filteredSystems = intent.getSerializableExtra("filteredSystems") as? ArrayList<HomeSystem> ?: return
+        Log.d("PabaigosPsl", "Gautos filtruotos sistemos: $filteredSystems")
+// Paslpti visus mytukus
+        val buttons = listOf(buttonSystem1, buttonSystem2, buttonSystem3, buttonSystem4)
+        buttons.forEach { it.visibility = View.GONE }
+
+// Nesl5pti tik mygtukus kurie atitinka pasirinkimams
+        filteredSystems.forEach { system ->
+            when(system.name) {
+                "KNX" -> buttonSystem1.visibility = View.VISIBLE
+                "JUNG Home" -> buttonSystem2.visibility = View.VISIBLE
+                "eNet SMART HOME" -> buttonSystem3.visibility = View.VISIBLE
+                "LB MANAGEMENT" -> buttonSystem4.visibility = View.VISIBLE
+            }
+        }
+
         askPermissions()
         btnCreatePdf = findViewById(R.id.XtmlToPdf)
         btnCreatePdf.setOnClickListener {
             createPDF()
         }
+
     }
+
 
     private fun askPermissions() {
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_CODE)
@@ -88,7 +120,7 @@ class PabaigosPsl : AppCompatActivity() {
         paint.textSize = 84f
         paint.textAlign = Paint.Align.CENTER // Center the text
 
-        val subtitle = "Žinomi montuotojai galintys įrengti jūsų pasirinktą sistemą"
+        val subtitle = "Galimos sistemos pagal jūsų pasirinktus kriterijus :"
         val xTitle = 540f
         val yTitle = 150f
 
@@ -176,125 +208,35 @@ class PabaigosPsl : AppCompatActivity() {
         drawLine(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 75f)
         canvas.drawBitmap(photoKnx, null, RectF(photoFirm4X, photoFirm4Y, photoFirm4X + photoFirm4Width, photoFirm4Y + photoFirm4Height), null)
 
-        // Info apie Rimvyda
-        val jungLinkText1 = "UAB Odri ︱ El-paštas : info@odri.lt ︱ Telefono nr. : +370 652 04021"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(jungLinkText1, xmontuotuojai1 + 400, ymontuotuojai1 + 100, paint)
+        // Add clickable link "Montuotuojas Rimvydas Velička"
+        val knxLinkText1 = "Montuotojas Rimvydas Velička"
+        val knxLinkUrl1 = "https://kontaktai.jung.lt/montuotojai/jung-home-diegejai/rimvydas-velicka/"
+        paint.textSize = 24f
+        drawLink(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 150f, knxLinkText1, knxLinkUrl1)
 
-        // Info apie Dainiu
-        val jungLinkText2 = "Šviesos studija THINKLIGHT ︱ El-paštas : info@thinklight.lt ︱ Telefono nr. : +370 665 11403"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(jungLinkText2, xmontuotuojai1 + 400, ymontuotuojai1 + 125, paint)
+        // Add clickable link "Montuotuojas Rimvydas Velička"
+        val knxLinkText2 = "Montuotojas Dainius Jurgulis"
+        val knxLinkUrl2 = "https://kontaktai.jung.lt/montuotojai/jung-home-diegejai/dainius-jurgulis/"
+        paint.textSize = 24f
+        drawLink(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 200f, knxLinkText2, knxLinkUrl2)
 
-        // Info apie Anatolij
-        val jungLinkText3 = "Būsto automatika ︱ El-paštas : gediminas.jovaisa@bustoautomatika.lt ︱ Telefono nr. : +370 659 29904"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(jungLinkText3, xmontuotuojai1 + 400, ymontuotuojai1 + 150, paint)
+        // Add clickable link "Montuotuojas Rimvydas Velička"
+        val knxLinkText3 = "Montuotojas Anatolij Volodko"
+        val knxLinkUrl3 = "https://kontaktai.jung.lt/montuotojai/jung-home-diegejai/anatolij-volodko/"
+        paint.textSize = 24f
+        drawLink(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 250f, knxLinkText2, knxLinkUrl3)
 
-        // Info apie Valerij
-        val jungLinkText4 = "Išmanūs sprendimai ︱ El-paštas : info@ismanussprendimai.lt ︱ Telefono nr. : +370 672 66488"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(jungLinkText4, xmontuotuojai1 + 400, ymontuotuojai1 +175, paint)
+        // Add clickable link "Montuotuojas Rimvydas Velička"
+        val knxLinkText4 = "Montuotojas Valerij Lukoic"
+        val knxLinkUrl4 = "https://kontaktai.jung.lt/montuotojai/jung-home-diegejai/valerij-lukoic/"
+        paint.textSize = 24f
+        drawLink(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 300f, knxLinkText4, knxLinkUrl4)
 
-        // Info apie Dovyda
-        val jungLinkText5 = "Inžinerinių sprendimų grupė ︱ El-paštas : info@isg.lt ︱ Telefono nr. : +370 698 73400"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(jungLinkText5, xmontuotuojai1 + 400, ymontuotuojai1 +200, paint)
-
-        // Info apie Rimvyda
-        val enetLinkText1 = "Inžinerinių sprendimų grupė ︱ El-paštas : info@isg.lt ︱ Telefono nr. : +370 698 73400"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(enetLinkText1, xmontuotuojai2 + 400, ymontuotuojai2 + 100, paint)
-
-        // Info apie Dainiu
-        val enetLinkText2 = "Pažangi namų automatika ︱ El-paštas : info@iha.lt ︱ Telefono nr. : +370 680 15265"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(enetLinkText2, xmontuotuojai2 + 400, ymontuotuojai2 + 125, paint)
-
-        // Info apie Anatolij
-        val enetLinkText3 = "Vimova ︱ El-paštas : info@vimova.lt ︱ Telefono nr. : +370 644 99571"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(enetLinkText3, xmontuotuojai2 + 400, ymontuotuojai2 + 150, paint)
-
-        // Info apie Valerij
-        val enetLinkText4 = "ATEA ︱ El-paštas : Aurimas.petrutis@atea.lt ︱ Telefono nr. : +370 682 55048"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(enetLinkText4, xmontuotuojai2 + 400, ymontuotuojai2 +175, paint)
-
-        // Info apie Dovyda
-        val enetLinkText5 = "Elektros architektūra (tik projektavimas) ︱ El-paštas : gediminas@earchitektura.lt ︱ Telefono nr. : +370 672 92600"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(enetLinkText5, xmontuotuojai2 + 400, ymontuotuojai2 +200, paint)
-
-        // Info apie Rimvyda
-        val lbLinkText1 = "UAB Odri ︱ El-paštas : info@odri.lt ︱ Telefono nr. : +370 652 04021"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(lbLinkText1, xmontuotuojai3 + 400, ymontuotuojai3 + 100, paint)
-
-        // Info apie Dainiu
-        val lbLinkText2 = "Šviesos studija THINKLIGHT ︱ El-paštas : info@thinklight.lt ︱ Telefono nr. : +370 665 11403"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(lbLinkText2, xmontuotuojai3 + 400, ymontuotuojai3 + 125, paint)
-
-        // Info apie Anatolij
-        val lbLinkText3 = "Būsto automatika ︱ El-paštas : gediminas.jovaisa@bustoautomatika.lt ︱ Telefono nr. : +370 659 29904"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(lbLinkText3, xmontuotuojai3 + 400, ymontuotuojai3 + 150, paint)
-
-        // Info apie Valerij
-        val lbLinkText4 = "Išmanūs sprendimai ︱ El-paštas : info@ismanussprendimai.lt ︱ Telefono nr. : +370 672 66488"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(lbLinkText4, xmontuotuojai3 + 400, ymontuotuojai3 +175, paint)
-
-        // Info apie Dovyda
-        val lbLinkText5 = "Inžinerinių sprendimų grupė ︱ El-paštas : info@isg.lt ︱ Telefono nr. : +370 698 73400"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(lbLinkText5, xmontuotuojai3 + 400, ymontuotuojai3 +200, paint)
-
-        // Info apie Rimvyda
-        val knxLinkText1 = "Montuotojas Rimvydas Velička ︱ El-paštas : rimkasss@gmail.com ︱ Telefono nr. : +370 622 93906"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(knxLinkText1, xmontuotuojai4 + 400, ymontuotuojai4 + 100, paint)
-
-        // Info apie Dainiu
-        val knxLinkText2 = "Montuotojas Dainius Jurgulis ︱ El-paštas : dovydas.kancauskis@gmail.com ︱ Telefono nr. : +370 629 22779"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(knxLinkText2, xmontuotuojai4 + 400, ymontuotuojai4 + 125, paint)
-
-        // Info apie Anatolij
-        val knxLinkText3 = "Montuotojas Anatolij Volodko ︱ El-paštas : valerluko@gmail.com ︱ Telefono nr. : +370 675 84765"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(knxLinkText3, xmontuotuojai4 + 400, ymontuotuojai4 + 150, paint)
-
-        // Info apie Valerij
-        val knxLinkText4 = "Montuotojas Valerij Lukoic ︱ El-paštas : eltolikas@gmail.com ︱ Telefono nr. : +370 687 59929"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(knxLinkText4, xmontuotuojai4 + 400, ymontuotuojai4 +175, paint)
-
-        // Info apie Dovyda
-        val knxLinkText5 = "Montuotojas Dovydas Kančauskis ︱ El-paštas : djurgulis@gmail.com ︱ Telefono nr. : +370 659 53820"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas.drawText(knxLinkText5, xmontuotuojai4 + 400, ymontuotuojai4 +200, paint)
+        // Add clickable link "Montuotuojas Rimvydas Velička"
+        val knxLinkText5 = "Montuotojas Dovydas Kančauskis"
+        val knxLinkUrl5 = "https://kontaktai.jung.lt/montuotojai/jung-home-diegejai/dovydas-kancauskis/"
+        paint.textSize = 24f
+        drawLink(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 350f, knxLinkText5, knxLinkUrl5)
 
         document.finishPage(page)
 
@@ -324,6 +266,18 @@ class PabaigosPsl : AppCompatActivity() {
         }
         val gap = 25f
         canvas.drawLine(startX, startY + gap, startX + 400f, startY + gap, paint)
+    }
+
+    private fun drawLink(canvas: Canvas, x: Float, y: Float, text: String, url: String) {
+        val paint = Paint().apply {
+            color = Color.BLUE
+            textSize = 32f
+            isUnderlineText = true
+        }
+        canvas.drawText(text, x, y, paint)
+        val rect = RectF(x, y - paint.textSize, x + paint.measureText(text), y)
+        // Store the clickable region and the URL in a data structure to handle clicks
+        clickableRegions.add(ClickableRegion(rect, url))
     }
 
     // Handle click events
