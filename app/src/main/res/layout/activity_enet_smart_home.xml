@@ -1,75 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityEnetSmartHome">
+    tools:context=".ActivityEnetSmartHome"
+    android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/ivAtgalEnet"
-        android:layout_width="113dp"
-        android:layout_height="58dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/atgal_nyptukas" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:shadowColor="#A6A6A6"
-        android:shadowDx="5"
-        android:shadowDy="5"
-        android:shadowRadius="6"
-        android:text="eNET Smart Home"
-        android:textColor="#000"
-        android:textSize="30sp"
-        android:textStyle=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivAtgalEnet" />
+        <ImageView
+            android:id="@+id/ivAtgalEnet"
+            android:layout_width="113dp"
+            android:layout_height="58dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/atgal_nyptukas" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="418dp"
-        android:layout_height="743dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="sans-serif-light"
-        android:gravity="center"
-        android:shadowColor="#A6A6A6"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="1"
-        android:text="Ši sistema yra idealus sprendimas, norint suteikti daugiau komforto ir saugumo savo namuose ar mažesniuose biuruose, taip pat ne tik naujuose pastatuose, bet ir pastatų renovacijos metu. „eNet“ radijo bangomis valdoma sistema užpildo nišą tarp standartinės instaliacijos sistemų, kur visi prietaisai prijungti maitinimo kabeliu, ir išmaniųjų pastatų sistemų. Naudojant „eNet SMART HOME“ programėlę, galima įjungti ir valdyti pastato funkcijas išmaniuoju telefonu, esant vietoje ar per nuotolį. „eNet“ – tai vientisas dizainas, sistema sumontuojama pastate, yra patvari, patikima, diegiama profesionalų. Sistema intuityviai valdoma ant sienos sumontuotu siųstuvu ar išmaniąja programėle. Įvairių gamintojų prietaisai gali būti sujungiami į vientisą tinklą, vartotojas gali lengvai konfigūruoti sistemą. Galimas valdymas balsu su „Amazon Alexa“ ir „Goggle Assistant“. Įdiegiama greitai ir paprastai. Kadangi sieniniai siųstuvai klijuojami ant norimo paviršiaus, jungiklius galima sumontuoti ten, kur reikia."
-        android:textColor="#000"
-        android:textSize="23sp"
-        android:textStyle=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="113dp"
+            android:layout_height="58dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/atgal_nyptukas" />
 
-    <View
-        android:id="@+id/linija1"
-        android:layout_width="294dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="4dp"
-        android:background="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:shadowColor="#A6A6A6"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="6"
+            android:text="eNET Smart Home"
+            android:textColor="#000"
+            android:textSize="30sp"
+            android:textStyle=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivAtgalEnet" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/jung" />
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="374dp"
+            android:layout_height="836dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:shadowColor="#A6A6A6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="1"
+            android:text="Ši sistema yra idealus sprendimas, norint suteikti daugiau komforto ir saugumo savo namuose ar mažesniuose biuruose, taip pat ne tik naujuose pastatuose, bet ir pastatų renovacijos metu. „eNet“ radijo bangomis valdoma sistema užpildo nišą tarp standartinės instaliacijos sistemų, kur visi prietaisai prijungti maitinimo kabeliu, ir išmaniųjų pastatų sistemų. Naudojant „eNet SMART HOME“ programėlę, galima įjungti ir valdyti pastato funkcijas išmaniuoju telefonu, esant vietoje ar per nuotolį. „eNet“ – tai vientisas dizainas, sistema sumontuojama pastate, yra patvari, patikima, diegiama profesionalų. Sistema intuityviai valdoma ant sienos sumontuotu siųstuvu ar išmaniąja programėle. Įvairių gamintojų prietaisai gali būti sujungiami į vientisą tinklą, vartotojas gali lengvai konfigūruoti sistemą. Galimas valdymas balsu su „Amazon Alexa“ ir „Goggle Assistant“. Įdiegiama greitai ir paprastai. Kadangi sieniniai siųstuvai klijuojami ant norimo paviršiaus, jungiklius galima sumontuoti ten, kur reikia."
+            android:textColor="#000"
+            android:textSize="23sp"
+            android:textStyle=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.486"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linija1" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:id="@+id/linija1"
+            android:layout_width="294dp"
+            android:layout_height="2dp"
+            android:background="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/jung" />
+
+        <TextView
+            android:id="@+id/KnxMontuotojai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:shadowColor="#A6A6A6"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="6"
+            android:text="Montuotojai"
+            android:textColor="#000"
+            android:textSize="30sp"
+            android:textStyle=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <ImageView
+            android:id="@+id/UabOdri"
+            android:layout_width="364dp"
+            android:layout_height="73dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BustoAuto"
+            app:srcCompat="@drawable/atea" />
+
+        <ImageView
+            android:id="@+id/SviesosStudija"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/InzinieriuSpGr"
+            app:srcCompat="@drawable/pazangi_namu_automatika" />
+
+        <ImageView
+            android:id="@+id/BustoAuto"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/KnxMontuotojai"
+            app:srcCompat="@drawable/vimova" />
+
+        <ImageView
+            android:id="@+id/IsmanusSprendimai"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SviesosStudija"
+            app:srcCompat="@drawable/elektros_architektura" />
+
+        <ImageView
+            android:id="@+id/InzinieriuSpGr"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/UabOdri"
+            app:srcCompat="@drawable/inzineriniu_sp_grupe" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

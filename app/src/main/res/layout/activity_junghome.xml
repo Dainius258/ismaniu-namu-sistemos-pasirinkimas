@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityJunghome">
+    android:fillViewport="true">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ActivityJunghome">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="113dp"
+            android:layout_height="58dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/atgal_nyptukas" />
     <ImageView
         android:id="@+id/ivAtgalJung"
         android:layout_width="113dp"
@@ -14,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/atgal_nyptukas" />
 
-    <TextView
+        <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,44 +45,113 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivAtgalJung" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="425dp"
-        android:layout_height="1137dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="sans-serif-light"
-        android:gravity="center"
-        android:shadowColor="#A6A6A6"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="1"
-        android:text="JUNG HOME prietaisai sujungiami į tinklą naudojant „Bluetooth® SIG Mesh“. Ši technologija leidžia sukurti decentralizuotą belaidį tinklą, kuriame duomenų perdavimas, dėl naudojamo automatinio šifravimo, yra ypač saugus. JUNG HOME prietaisai, pvz., mygtukai ir kištukiniai lizdai, vienu metu gali veikti kaip siųstuvai ir imtuvai. Jie palaiko tarpusavio ryšį naudodami aukšto lygio šifravimą (AES-128). Perduodamos komandos tinkle keliauja iš prietaiso į prietaisą, kol pasiekia tikslą. Tai leidžia palaikyti ryšį už tiesioginės belaidžio ryšio aprėpties ribų. „Bluetooth Mesh“ veikia be interneto ir serverio prieigos, todėl duomenys lieka tinklo viduje.
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="362dp"
+            android:layout_height="1341dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:shadowColor="#A6A6A6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="1"
+            android:text="JUNG HOME prietaisai sujungiami į tinklą naudojant „Bluetooth® SIG Mesh“. Ši technologija leidžia sukurti decentralizuotą belaidį tinklą, kuriame duomenų perdavimas, dėl naudojamo automatinio šifravimo, yra ypač saugus. JUNG HOME prietaisai, pvz., mygtukai ir kištukiniai lizdai, vienu metu gali veikti kaip siųstuvai ir imtuvai. Jie palaiko tarpusavio ryšį naudodami aukšto lygio šifravimą (AES-128). Perduodamos komandos tinkle keliauja iš prietaiso į prietaisą, kol pasiekia tikslą. Tai leidžia palaikyti ryšį už tiesioginės belaidžio ryšio aprėpties ribų. „Bluetooth Mesh“ veikia be interneto ir serverio prieigos, todėl duomenys lieka tinklo viduje.
 JUNG HOME yra lanksti pastato valdymo sistema. Tai reiškia, kad sistemą galima lengvai išplėsti prijungiant naujas patalpas ar pastato aukštus bei papildomas funkcijas. Todėl šią sistemą galima įdiegti tiek mažesniuose, tiek ir didesniuose pastatuose. Sistemos konfigūravimui  nereikia interneto prieigos, prietaisai tarpusavyje susiejami naudodami išmanųjį telefoną ir programėlę JUNG HOME. JUNG HOME integravimas į gamintojų tinklą „WORKS WITH mediola®“ atveria naudotojams daugybę papildomų galimybių prisijungti prie daiktų interneto pasaulio – daugelį buities prietaisų  galima valdyti JUNG HOME mygtukais. JUNG HOME sistemą sujungus su „Amazon Alexa“ arba „Google Assistant“, atsiranda galimybė visus JUNG HOME prietaisus ir prie sistemos prijungtus kitų prekių ženklų gamintojų išmaniuosius sprendimus valdyti balsu. Be to, naudojantis programėlėmis „Amazon Alexa“ arba „Google Assistant“, JUNG HOME sistemą galima valdyti ir internetu."
-        android:textColor="#000"
-        android:textSize="23sp"
-        android:textStyle=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            android:textColor="#000"
+            android:textSize="23sp"
+            android:textStyle=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-    <View
-        android:id="@+id/linija1"
-        android:layout_width="294dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="4dp"
-        android:background="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        <View
+            android:id="@+id/linija1"
+            android:layout_width="294dp"
+            android:layout_height="2dp"
+            android:background="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/jung" />
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/jung" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/KnxMontuotojai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:shadowColor="#A6A6A6"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="6"
+            android:text="Montuotojai"
+            android:textColor="#000"
+            android:textSize="30sp"
+            android:textStyle=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <ImageView
+            android:id="@+id/UabOdri"
+            android:layout_width="364dp"
+            android:layout_height="73dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BustoAuto"
+            app:srcCompat="@drawable/rimvydas" />
+
+        <ImageView
+            android:id="@+id/SviesosStudija"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/InzinieriuSpGr"
+            app:srcCompat="@drawable/dovydas_kan" />
+
+        <ImageView
+            android:id="@+id/BustoAuto"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/KnxMontuotojai"
+            app:srcCompat="@drawable/valerij_luk" />
+
+        <ImageView
+            android:id="@+id/IsmanusSprendimai"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SviesosStudija"
+            app:srcCompat="@drawable/anatolij_vol" />
+
+        <ImageView
+            android:id="@+id/InzinieriuSpGr"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/UabOdri"
+            app:srcCompat="@drawable/dainius_jur" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,75 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ActivityLbmanagement">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/ivAtgalLb"
-        android:layout_width="113dp"
-        android:layout_height="58dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/atgal_nyptukas" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center"
-        android:shadowColor="#A6A6A6"
-        android:shadowDx="5"
-        android:shadowDy="5"
-        android:shadowRadius="6"
-        android:text="LB Management"
-        android:textColor="#000"
-        android:textSize="30sp"
-        android:textStyle=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivAtgalLb" />
+        tools:context=".ActivityLbmanagement">
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="401dp"
-        android:layout_height="675dp"
-        android:layout_marginTop="28dp"
-        android:fontFamily="sans-serif-light"
-        android:gravity="center"
-        android:shadowColor="#A6A6A6"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="1"
-        android:text="LB-Management – naujoji apšvietimo intensyvumo ir žaliuzių valdymo sistema. Privačiuose statiniuose pagal poreikį valdoma apšvietimo ir žaliuzių sistema užtikrina didesnį komfortą ir energijos vartojimo efektyvumą.
-„Clever Config“ programėlė. Šia programėle universalus „Bluetooth“ laikmatis, universalus sieninis judesio jutiklis ir lubinis būvio jutiklis nustatomi ir valdomi išmaniuoju telefonu: patogus funkcijų valdymas, rodmenų ir būsenos rodymas, laikmačio ir tokių parametrų, kaip išjungimo vėlinimas ir šviesumas, nustatymas. Ryšys tarp programėlės ir LB-Management įrangos užmezgamas per „Bluetooth Low Energy“. Po sėkmingo nuskaitymo aptikti prietaisai parodomi sąraše ir atitinkama prietaiso konfigūracija gali būti perkelta į programėlę. Susieti prietaisai gali būti priskirti patalpoms, jiems gali būti suteiktas vardas, kuris valdymą padaro aiškesnį."
-        android:textColor="#000"
-        android:textSize="23sp"
-        android:textStyle=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        <ImageView
+            android:id="@+id/ivAtgalLb"
+            android:layout_width="113dp"
+            android:layout_height="58dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/atgal_nyptukas" />
 
-    <View
-        android:id="@+id/linija1"
-        android:layout_width="294dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="4dp"
-        android:background="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:shadowColor="#A6A6A6"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="6"
+            android:text="LB Management"
+            android:textColor="#000"
+            android:textSize="30sp"
+            android:textStyle=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivAtgalLb" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/jung" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="371dp"
+            android:layout_height="739dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:shadowColor="#A6A6A6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="1"
+            android:text="LB-Management – naujoji apšvietimo intensyvumo ir žaliuzių valdymo sistema. Privačiuose statiniuose pagal poreikį valdoma apšvietimo ir žaliuzių sistema užtikrina didesnį komfortą ir energijos vartojimo efektyvumą.
+                „Clever Config“ programėlė. Šia programėle universalus „Bluetooth“ laikmatis, universalus sieninis judesio jutiklis ir lubinis būvio jutiklis nustatomi ir valdomi išmaniuoju telefonu: patogus funkcijų valdymas, rodmenų ir būsenos rodymas, laikmačio ir tokių parametrų, kaip išjungimo vėlinimas ir šviesumas, nustatymas. Ryšys tarp programėlės ir LB-Management įrangos užmezgamas per „Bluetooth Low Energy“. Po sėkmingo nuskaitymo aptikti prietaisai parodomi sąraše ir atitinkama prietaiso konfigūracija gali būti perkelta į programėlę. Susieti prietaisai gali būti priskirti patalpoms, jiems gali būti suteiktas vardas, kuris valdymą padaro aiškesnį."
+            android:textColor="#000"
+            android:textSize="23sp"
+            android:textStyle=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <View
+            android:id="@+id/linija1"
+            android:layout_width="294dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:background="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/jung" />
+
+        <TextView
+            android:id="@+id/KnxMontuotojai"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:shadowColor="#A6A6A6"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="6"
+            android:text="Montuotojai"
+            android:textColor="#000"
+            android:textSize="30sp"
+            android:textStyle=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <ImageView
+            android:id="@+id/UabOdri"
+            android:layout_width="364dp"
+            android:layout_height="73dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/BustoAuto"
+            app:srcCompat="@drawable/ismanus_sprendimai" />
+
+        <ImageView
+            android:id="@+id/SviesosStudija"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/InzinieriuSpGr"
+            app:srcCompat="@drawable/sviesos_studija_thinklight" />
+
+        <ImageView
+            android:id="@+id/BustoAuto"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/KnxMontuotojai"
+            app:srcCompat="@drawable/inzineriniu_sp_grupe" />
+
+        <ImageView
+            android:id="@+id/IsmanusSprendimai"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/SviesosStudija"
+            app:srcCompat="@drawable/uab_odri" />
+
+        <ImageView
+            android:id="@+id/InzinieriuSpGr"
+            android:layout_width="364dp"
+            android:layout_height="79dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/UabOdri"
+            app:srcCompat="@drawable/busto_automatika" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
