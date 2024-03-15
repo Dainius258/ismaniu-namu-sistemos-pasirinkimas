@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 
 import android.widget.MultiAutoCompleteTextView
+import java.io.Serializable
 
 class KlausimynoPuslapis : AppCompatActivity() {
     // Define your adapters array
@@ -166,24 +167,15 @@ class KlausimynoPuslapis : AppCompatActivity() {
             val selectedOptions = getSelectedOptionsFromAllDropdowns()
             // Filtruok sistemas pagal pasirinkimus
             arrayAdapter.recommendHomeSystem(selectedOptions)
-            val recommendedSystems = arrayAdapter.recommendHomeSystem(selectedOptions)
+            val recommendedSystems: List<HomeSystem> = arrayAdapter.recommendHomeSystem(selectedOptions)
             val intent = Intent(this, PabaigosPsl::class.java).apply {
-                // Ensure this is a Serializable list. The error suggests a mismatch in expected type.
-                putExtra("filteredSystems", recommendedSystems)
+                // Here, explicitly cast recommendedSystems as Serializable
+                putExtra("filteredSystems", recommendedSystems as Serializable)
             }
             startActivity(intent)
         }
 
     }
-
-    /*
-    * selectSolutionButton.setOnClickListener {
-            // Čia surink visus pasirinkimus iš visų AutoCompleteTextView
-            val selectedOptions = getSelectedOptionsFromAllDropdowns()
-            // Filtruok sistemas pagal pasirinkimus
-            arrayAdapter.recommendHomeSystem(selectedOptions)
-        }
-        * */
     private fun getSelectedOptionsFromAllDropdowns(): List<String> {
         val selectedOptions = mutableListOf<String>()
         // itrauk visus  MultiAutoCompleteTextView, gaukti pasirinkimus

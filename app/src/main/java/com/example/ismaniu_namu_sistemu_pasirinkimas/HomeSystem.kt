@@ -25,7 +25,8 @@ data class HomeSystem(
     val remoteControl: List<String>,
     val pcControl: List<String>,
     val smartAssistants: List<String>,
-    val additionalInfo: String
+    val additionalInfo: String,
+    val controllConection: List<String>
 ): Serializable
 val homeSystems = listOf(
     HomeSystem(
@@ -51,7 +52,8 @@ val homeSystems = listOf(
         remoteControl = emptyList(),
         smartAssistants = emptyList(),
         pcControl = emptyList(),
-        additionalInfo = "LB MANAGEMENT sistema neturi šių funkcijų: ..."
+        additionalInfo = "LB MANAGEMENT sistema neturi šių funkcijų: ...",
+        controllConection  = listOf("Bluetooth")
     ),
     HomeSystem(
         name = "eNet SMART HOME",
@@ -76,7 +78,8 @@ val homeSystems = listOf(
         remoteControl = listOf("eSmart HOME Remote (nemokamas)"),
         smartAssistants = listOf("Google Assistan", "Amazon Alexa Kompiuteriu/naršykle"),
         pcControl = emptyList(),
-        additionalInfo = "eNet SMART HOME sistema neturi šių funkcijų: ..."
+        additionalInfo = "eNet SMART HOME sistema neturi šių funkcijų: ...",
+        controllConection  = listOf("Internetu")
     ),
     HomeSystem(
         name = "KNX",
@@ -101,7 +104,8 @@ val homeSystems = listOf(
         remoteControl = listOf("JUNG Remote (29e vienkartinis)"),
         smartAssistants = listOf("Google Assistan", "Amazon Alexa"),
         pcControl = listOf("Kompiuteriu/naršykle"),
-        additionalInfo = "KNX sistema neturi šių funkcijų: ..."
+        additionalInfo = "KNX sistema neturi šių funkcijų: ...",
+        controllConection  = listOf("Internetu")
     ),
     HomeSystem(
         name = "JUNG Home",
@@ -126,6 +130,7 @@ val homeSystems = listOf(
         remoteControl = emptyList(),
         smartAssistants = listOf("Google Assistan", "Amazon Alexa"),
         pcControl = emptyList(),
-        additionalInfo = "KNX sistema neturi šių funkcijų: ..."
+        additionalInfo = "KNX sistema neturi šių funkcijų: ...",
+        controllConection  = listOf("Internetu", "Bluetooth")
     )
 )
