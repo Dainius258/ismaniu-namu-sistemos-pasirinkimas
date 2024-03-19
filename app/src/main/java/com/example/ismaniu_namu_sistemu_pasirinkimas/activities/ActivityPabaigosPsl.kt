@@ -1,5 +1,4 @@
 package com.example.ismaniu_namu_sistemu_pasirinkimas.activities
-import android.util.Log
 import android.Manifest
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
@@ -16,11 +15,6 @@ import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
-import android.content.ActivityNotFoundException
-import android.content.Intent
-import android.net.Uri
-import android.widget.Toast
-import android.view.MotionEvent
 import android.view.View
 import android.widget.ListView
 import com.example.ismaniu_namu_sistemu_pasirinkimas.utils.CheckboxAdapter
@@ -71,8 +65,6 @@ class ActivityPabaigosPsl : AppCompatActivity() {
         // Vartotojo pasirinktos funkcijos, galima pasiimti visas funkcijas su selectedFunctions
         val selectedFunctions = (intent.getSerializableExtra("selectedFunctions") as? ArrayList<String>) ?: return
 
-        //Log.d("PabaigosPsl", "Filtered Systems: $filteredSystems, Size: ${filteredSystems.size}")
-        //Log.d("PabaigosPsl", "Selected functions: $selectedFunctions")
 
 // Paslpti visus mytukus
         val buttons = listOf(buttonSystem1, buttonSystem2, buttonSystem3, buttonSystem4)
@@ -91,7 +83,7 @@ class ActivityPabaigosPsl : AppCompatActivity() {
         askPermissions()
         btnCreatePdf = findViewById(R.id.XtmlToPdf)
         btnCreatePdf.setOnClickListener {
-            createPDF()
+            createPDF(selectedFunctions)
         }
 
     }
@@ -101,171 +93,255 @@ class ActivityPabaigosPsl : AppCompatActivity() {
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_CODE)
     }
 
-    private fun createPDF() {
-        val document = PdfDocument()
-        val pageInfo = PdfDocument.PageInfo.Builder(1080, 1920, 1).create()
-        val page = document.startPage(pageInfo)
+    private fun createPDF(selectedFunctions: ArrayList<String>) {
 
-        val canvas: Canvas = page.canvas
+
+        val document = PdfDocument()
+        val pageInfo1 = PdfDocument.PageInfo.Builder(1080, 1920, 1).create()
+        val page1 = document.startPage(pageInfo1)
+        val canvas1: Canvas = page1.canvas
 
         // Load your photo from resources
         val photoBitmap = BitmapFactory.decodeResource(resources, R.drawable.jung)
         val photoEnet = BitmapFactory.decodeResource(resources, R.drawable.enet)
         val photoJung = BitmapFactory.decodeResource(resources, R.drawable.junglogo)
         val photoKnx = BitmapFactory.decodeResource(resources, R.drawable.knx)
-
         // Logo
         val photoWidth = 250
         val photoHeight = (photoBitmap.height.toFloat() / photoBitmap.width * photoWidth).toInt()
         val photoX = (1080 - photoWidth) / 2f
         val photoY = 50f
 
+        canvas1.drawBitmap(photoBitmap, null, RectF(photoX, photoY, photoX + photoWidth, photoY + photoHeight), null)
+        val paint = Paint()
+
+
+//SUBTITLE1
+        val subtitle1 = "Jūsų pasirinkti kriterijai :"
+        paint.textSize = 48f
+        val xTitle = 540f
+        val yTitle = 225f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas1.drawText(subtitle1, photoX - 100, yTitle, paint)
+
+        val yOffset = 45 // Increase the y-coordinate gap between items
+        val lineLength = 1000f // Length of the lines (350f long)
+        val lineStartX = xTitle - 500 // Starting x-coordinate for the lines
+
+// Calculate the x-coordinate for the second row (100 units farther from the first row)
+        val secondRowX = lineStartX + 650
+
+// Draw the text and lines
+        for (i in selectedFunctions.indices) {
+            val row = i % 2 // Determine the row (0 or 1)
+            val textY = yTitle + 100 + (i / 2) * yOffset // Calculate y-coordinate for the text
+            val textX = if (row == 0) lineStartX else secondRowX // Calculate x-coordinate for the text
+
+            // Draw text
+            paint.textSize = 20f
+            canvas1.drawText(selectedFunctions[i], textX, textY, paint)
+
+            // Draw line below the text
+            val lineY = textY + yOffset / 2 // Y-coordinate for the line (middle of the text)
+            canvas1.drawLine(textX, lineY, textX + lineLength, lineY, paint)
+        }
+
+
+
+        document.finishPage(page1)
+        val pageInfo2 = PdfDocument.PageInfo.Builder(1080, 1920, 2).create()
+        val page2 = document.startPage(pageInfo2)
+        val canvas2: Canvas = page2.canvas
+
+
         // photoFirm2
         val photoFirm2Width = 128f
         val photoFirm2Height = (photoBitmap.height.toFloat() / photoBitmap.width * photoWidth).toInt()
-        val photoFirm2X = 700f
-        val photoFirm2Y = 650f
+        val photoFirm2X = 670f
+        val photoFirm2Y = 600f
+        canvas2.drawBitmap(photoEnet, null, RectF(photoFirm2X, photoFirm2Y, photoFirm2X + photoFirm2Width, photoFirm2Y + photoFirm2Height), null)
 
         // photoFirm3
-        val photoFirm3Width = 96f
+        val photoFirm3Width = 72f
         val photoFirm3Height = (photoBitmap.height.toFloat() / photoBitmap.width * photoWidth).toInt()
-        val photoFirm3X = 650f
-        val photoFirm3Y = 1050f
+        val photoFirm3X = 670f
+        val photoFirm3Y = 980f
+        canvas2.drawBitmap(photoJung, null, RectF(photoFirm3X, photoFirm3Y, photoFirm3X + photoFirm3Width, photoFirm3Y + photoFirm3Height), null)
 
         // photoFirm4
-        val photoFirm4Width = 96f
+        val photoFirm4Width = 72f
         val photoFirm4Height = (photoBitmap.height.toFloat() / photoBitmap.width * photoWidth).toInt()
-        val photoFirm4X = 750f
-        val photoFirm4Y = 1500f
-
+        val photoFirm4X = 670f
+        val photoFirm4Y = 1430f
+        canvas2.drawBitmap(photoKnx, null, RectF(photoFirm4X, photoFirm4Y, photoFirm4X + photoFirm4Width, photoFirm4Y + photoFirm4Height), null)
 
         // Draw the photo
-        canvas.drawBitmap(photoBitmap, null, RectF(photoX, photoY, photoX + photoWidth, photoY + photoHeight), null)
+        canvas2.drawBitmap(photoBitmap, null, RectF(photoX, photoY, photoX + photoWidth, photoY + photoHeight), null)
 
-        val paint = Paint()
         paint.color = Color.BLACK
         paint.textSize = 84f
         paint.textAlign = Paint.Align.CENTER // Center the text
 
-        val subtitle = "Galimos sistemos pagal jūsų pasirinktus kriterijus :"
-        val xTitle = 540f
-        val yTitle = 150f
+        //SUBTITLE
+        val subtitle = "Sistemu montuotojų rekvizitai :"
+        paint.textSize = 48f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(subtitle, xTitle, yTitle, paint)
 
+        //FIRMA1 pavadinimas
         val firm1 = "LB-MANAGEMENT"
         val xFirmTitle1 = 540f
         val yFirmTitle1 = 300f
+        paint.textSize = 24f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(firm1, xFirmTitle1, yFirmTitle1, paint)
 
-        val montuotuojai1 = "Montuotojai : "
-        val xmontuotuojai1 = 125f
-        val ymontuotuojai1 = 400f
-
+        //FIRMA2 pavadinimas
         val firm2 = "eNet SMART HOME"
         val xFirmTitle2 = 540f
         val yFirmTitle2 = 650f
+        paint.textSize = 24f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(firm2, xFirmTitle2, yFirmTitle2, paint)
 
-        val montuotuojai2 = "Montuotojai : "
-        val xmontuotuojai2 = 125f
-        val ymontuotuojai2 = 750f
-
+        //FIRMA3 pavadinimas
         val firm3 = "JUNG HOME"
         val xFirmTitle3 = 540f
         val yFirmTitle3 = 1050f
+        paint.textSize = 24f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(firm3, xFirmTitle3, yFirmTitle3, paint)
 
-        val montuotuojai3 = "Montuotojai : "
-        val xmontuotuojai3 = 125f
-        val ymontuotuojai3 = 1150f
-
+        //FIRMA4 pavadinimas
         val firm4 = "KNX valdymo sistema"
         val xFirmTitle4 = 540f
         val yFirmTitle4 = 1500f
-
-        val montuotuojai4 = "Montuotojai : "
-        val xmontuotuojai4 = 125f
-        val ymontuotuojai4 = 1600f
-
-        // Draw montuotuojai1
-        paint.textSize = 32f
-        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
-        canvas.drawText(montuotuojai1, xmontuotuojai1, ymontuotuojai1 + 50, paint)
-
-        // Draw montuotuojai2
-        paint.textSize = 32f
-        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
-        canvas.drawText(montuotuojai2, xmontuotuojai2, ymontuotuojai2 + 50, paint)
-
-        // Draw montuotuojai3
-        paint.textSize = 32f
-        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
-        canvas.drawText(montuotuojai3, xmontuotuojai3, ymontuotuojai3 + 50, paint)
-
-        // Draw montuotuojai4
-        paint.textSize = 32f
-        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
-        canvas.drawText(montuotuojai4, xmontuotuojai4, ymontuotuojai4 + 50, paint)
-
-        // Draw subtitle
-        paint.textSize = 32f
-        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
-        canvas.drawText(subtitle, xTitle, yTitle + 50, paint)
-
-        // Draw Firm1
-        paint.textSize = 32f
-        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
-        canvas.drawText(firm1, xFirmTitle1, yFirmTitle1 + 50, paint)
-        drawLine(canvas, xFirmTitle1 - 200f, yFirmTitle1 + 75f)
-
-        // Draw Firm2 and photoFirm2
-        paint.textSize = 32f
-        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
-        canvas.drawText(firm2, xFirmTitle2, yFirmTitle2 + 50, paint)
-        drawLine(canvas, xFirmTitle2 - 200f, yFirmTitle2 + 75f)
-        canvas.drawBitmap(photoEnet, null, RectF(photoFirm2X, photoFirm2Y, photoFirm2X + photoFirm2Width, photoFirm2Y + photoFirm2Height), null)
-
-        // Draw Firm3 and photoFirm3
-        paint.textSize = 32f
-        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
-        canvas.drawText(firm3, xFirmTitle3, yFirmTitle3 + 50, paint)
-        drawLine(canvas, xFirmTitle3 - 200f, yFirmTitle3 + 75f)
-        canvas.drawBitmap(photoJung, null, RectF(photoFirm3X, photoFirm3Y, photoFirm3X + photoFirm3Width, photoFirm3Y + photoFirm3Height), null)
-
-        // Draw Firm4 and photoFirm4
-        paint.textSize = 32f
-        paint.setShadowLayer(2f, 2f, 2f, Color.BLACK)
-        canvas.drawText(firm4, xFirmTitle4, yFirmTitle4 + 50, paint)
-        drawLine(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 75f)
-        canvas.drawBitmap(photoKnx, null, RectF(photoFirm4X, photoFirm4Y, photoFirm4X + photoFirm4Width, photoFirm4Y + photoFirm4Height), null)
-
-        // Add clickable link "Montuotuojas Rimvydas Velička"
-        val knxLinkText1 = "Montuotojas Rimvydas Velička"
-        val knxLinkUrl1 = "https://kontaktai.jung.lt/montuotojai/jung-home-diegejai/rimvydas-velicka/"
         paint.textSize = 24f
-        drawLink(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 150f, knxLinkText1, knxLinkUrl1)
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(firm4, xFirmTitle4, yFirmTitle4, paint)
 
-        // Add clickable link "Montuotuojas Rimvydas Velička"
-        val knxLinkText2 = "Montuotojas Dainius Jurgulis"
-        val knxLinkUrl2 = "https://kontaktai.jung.lt/montuotojai/jung-home-diegejai/dainius-jurgulis/"
-        paint.textSize = 24f
-        drawLink(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 200f, knxLinkText2, knxLinkUrl2)
+        // Info apie Rimvyda
+        val jungLinkText1 = "UAB Odri ︱ El-paštas : info@odri.lt ︱ Telefono nr. : +370 652 04021"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(jungLinkText1, xFirmTitle1, yFirmTitle1 + 50, paint)
 
-        // Add clickable link "Montuotuojas Rimvydas Velička"
-        val knxLinkText3 = "Montuotojas Anatolij Volodko"
-        val knxLinkUrl3 = "https://kontaktai.jung.lt/montuotojai/jung-home-diegejai/anatolij-volodko/"
-        paint.textSize = 24f
-        drawLink(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 250f, knxLinkText2, knxLinkUrl3)
+        // Info apie Dainiu
+        val jungLinkText2 = "Šviesos studija THINKLIGHT ︱ El-paštas : info@thinklight.lt ︱ Telefono nr. : +370 665 11403"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(jungLinkText2, xFirmTitle1, yFirmTitle1 + 75, paint)
 
-        // Add clickable link "Montuotuojas Rimvydas Velička"
-        val knxLinkText4 = "Montuotojas Valerij Lukoic"
-        val knxLinkUrl4 = "https://kontaktai.jung.lt/montuotojai/jung-home-diegejai/valerij-lukoic/"
-        paint.textSize = 24f
-        drawLink(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 300f, knxLinkText4, knxLinkUrl4)
+        // Info apie Anatolij
+        val jungLinkText3 = "Būsto automatika ︱ El-paštas : gediminas.jovaisa@bustoautomatika.lt ︱ Telefono nr. : +370 659 29904"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(jungLinkText3, xFirmTitle1, yFirmTitle1 + 100, paint)
 
-        // Add clickable link "Montuotuojas Rimvydas Velička"
-        val knxLinkText5 = "Montuotojas Dovydas Kančauskis"
-        val knxLinkUrl5 = "https://kontaktai.jung.lt/montuotojai/jung-home-diegejai/dovydas-kancauskis/"
-        paint.textSize = 24f
-        drawLink(canvas, xFirmTitle4 - 200f, yFirmTitle4 + 350f, knxLinkText5, knxLinkUrl5)
+        // Info apie Valerij
+        val jungLinkText4 = "Išmanūs sprendimai ︱ El-paštas : info@ismanussprendimai.lt ︱ Telefono nr. : +370 672 66488"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(jungLinkText4, xFirmTitle1, yFirmTitle1 + 125, paint)
 
-        document.finishPage(page)
+        // Info apie Dovyda
+        val jungLinkText5 = "Inžinerinių sprendimų grupė ︱ El-paštas : info@isg.lt ︱ Telefono nr. : +370 698 73400"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(jungLinkText5, xFirmTitle1, yFirmTitle1 + 150, paint)
+
+        // Info apie Rimvyda
+        val enetLinkText1 = "Inžinerinių sprendimų grupė ︱ El-paštas : info@isg.lt ︱ Telefono nr. : +370 698 73400"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(enetLinkText1, xFirmTitle2, yFirmTitle2 + 50, paint)
+
+        // Info apie Dainiu
+        val enetLinkText2 = "Pažangi namų automatika ︱ El-paštas : info@iha.lt ︱ Telefono nr. : +370 680 15265"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(enetLinkText2, xFirmTitle2, yFirmTitle2 + 75, paint)
+
+        // Info apie Anatolij
+        val enetLinkText3 = "Vimova ︱ El-paštas : info@vimova.lt ︱ Telefono nr. : +370 644 99571"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(enetLinkText3, xFirmTitle2, yFirmTitle2 + 100, paint)
+
+        // Info apie Valerij
+        val enetLinkText4 = "ATEA ︱ El-paštas : Aurimas.petrutis@atea.lt ︱ Telefono nr. : +370 682 55048"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(enetLinkText4, xFirmTitle2, yFirmTitle2 +125, paint)
+
+        // Info apie Dovyda
+        val enetLinkText5 = "Elektros architektūra (tik projektavimas) ︱ El-paštas : gediminas@earchitektura.lt ︱ Telefono nr. : +370 672 92600"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(enetLinkText5, xFirmTitle2, yFirmTitle2 +150, paint)
+
+        // Info apie Rimvyda
+        val lbLinkText1 = "UAB Odri ︱ El-paštas : info@odri.lt ︱ Telefono nr. : +370 652 04021"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(lbLinkText1, xFirmTitle3, yFirmTitle3 + 50, paint)
+
+        // Info apie Dainiu
+        val lbLinkText2 = "Šviesos studija THINKLIGHT ︱ El-paštas : info@thinklight.lt ︱ Telefono nr. : +370 665 11403"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(lbLinkText2, xFirmTitle3, yFirmTitle3 + 75, paint)
+
+        // Info apie Anatolij
+        val lbLinkText3 = "Būsto automatika ︱ El-paštas : gediminas.jovaisa@bustoautomatika.lt ︱ Telefono nr. : +370 659 29904"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(lbLinkText3, xFirmTitle3, yFirmTitle3 + 100, paint)
+
+        // Info apie Valerij
+        val lbLinkText4 = "Išmanūs sprendimai ︱ El-paštas : info@ismanussprendimai.lt ︱ Telefono nr. : +370 672 66488"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(lbLinkText4, xFirmTitle3, yFirmTitle3+125, paint)
+
+        // Info apie Dovyda
+        val lbLinkText5 = "Inžinerinių sprendimų grupė ︱ El-paštas : info@isg.lt ︱ Telefono nr. : +370 698 73400"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(lbLinkText5, xFirmTitle3, yFirmTitle3 +150, paint)
+
+        // Info apie Rimvyda
+        val knxLinkText1 = "Montuotojas Rimvydas Velička ︱ El-paštas : rimkasss@gmail.com ︱ Telefono nr. : +370 622 93906"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(knxLinkText1, xFirmTitle4, yFirmTitle4 + 50, paint)
+
+        // Info apie Dainiu
+        val knxLinkText2 = "Montuotojas Dainius Jurgulis ︱ El-paštas : dovydas.kancauskis@gmail.com ︱ Telefono nr. : +370 629 22779"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(knxLinkText2, xFirmTitle4, yFirmTitle4 + 75, paint)
+
+        // Info apie Anatolij
+        val knxLinkText3 = "Montuotojas Anatolij Volodko ︱ El-paštas : valerluko@gmail.com ︱ Telefono nr. : +370 675 84765"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(knxLinkText3, xFirmTitle4, yFirmTitle4 + 100, paint)
+
+        // Info apie Valerij
+        val knxLinkText4 = "Montuotojas Valerij Lukoic ︱ El-paštas : eltolikas@gmail.com ︱ Telefono nr. : +370 687 59929"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(knxLinkText4, xFirmTitle4, yFirmTitle4 +125, paint)
+
+        // Info apie Dovyda
+        val knxLinkText5 = "Montuotojas Dovydas Kančauskis ︱ El-paštas : djurgulis@gmail.com ︱ Telefono nr. : +370 659 53820"
+        paint.textSize = 20f
+        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
+        canvas2.drawText(knxLinkText5, xFirmTitle4, yFirmTitle4 +150, paint)
+
+        document.finishPage(page2)
+
 
         val downloadsDir: File = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
         val baseName = "Ismanus_Namai"
@@ -304,60 +380,5 @@ class ActivityPabaigosPsl : AppCompatActivity() {
     private fun navigateToLbManagement() {
         val intent = Intent(this, ActivityLbmanagement::class.java)
         startActivity(intent)
-    }
-
-    private fun drawLine(canvas: Canvas, startX: Float, startY: Float) {
-        val paint = Paint().apply {
-            color = Color.BLACK
-            strokeWidth = 2f
-        }
-        val gap = 25f
-        canvas.drawLine(startX, startY + gap, startX + 400f, startY + gap, paint)
-    }
-
-    private fun drawLink(canvas: Canvas, x: Float, y: Float, text: String, url: String) {
-        val paint = Paint().apply {
-            color = Color.BLUE
-            textSize = 32f
-            isUnderlineText = true
-        }
-        canvas.drawText(text, x, y, paint)
-        val rect = RectF(x, y - paint.textSize, x + paint.measureText(text), y)
-        // Store the clickable region and the URL in a data structure to handle clicks
-        clickableRegions.add(ClickableRegion(rect, url))
-    }
-
-    // Handle click events
-    // Define a data class to represent clickable regions
-    data class ClickableRegion(val rect: RectF, val url: String)
-
-    // Initialize an empty list to store clickable regions
-    private val clickableRegions = mutableListOf<ClickableRegion>()
-
-    // Handle click events
-    private fun handleOnClick(x: Float, y: Float) {
-        for (region in clickableRegions) {
-            if (region.rect.contains(x, y)) {
-                openUrlInBrowser(region.url)
-                return
-            }
-        }
-    }
-
-    // Open URL in browser
-    private fun openUrlInBrowser(url: String) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-        try {
-            startActivity(intent)
-        } catch (e: ActivityNotFoundException) {
-            Toast.makeText(this, "No application can handle this request", Toast.LENGTH_LONG).show()
-        }
-    }
-    override fun onTouchEvent(event: MotionEvent): Boolean {
-        if (event.action == MotionEvent.ACTION_UP) {
-            handleOnClick(event.x, event.y)
-        }
-        Log.d("TouchEvent", "X: ${event.x}, Y: ${event.y}")
-        return super.onTouchEvent(event)
     }
 }
