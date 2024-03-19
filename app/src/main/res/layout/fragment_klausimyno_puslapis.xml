@@ -713,6 +713,6 @@
             android:layout_height="48dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/atgal_nyptukas" />
+            app:srcCompat="@drawable/backarrow" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

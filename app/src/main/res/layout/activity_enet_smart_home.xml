@@ -13,19 +13,11 @@
 
         <ImageView
             android:id="@+id/ivAtgalEnet"
-            android:layout_width="113dp"
-            android:layout_height="58dp"
+            android:layout_width="115dp"
+            android:layout_height="51dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/atgal_nyptukas" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="113dp"
-            android:layout_height="58dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/atgal_nyptukas" />
+            app:srcCompat="@drawable/backarrow" />
 
         <TextView
             android:id="@+id/textView9"

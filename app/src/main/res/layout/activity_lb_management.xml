@@ -16,7 +16,7 @@
             android:layout_height="58dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/atgal_nyptukas" />
+            app:srcCompat="@drawable/backarrow" />
 
         <TextView
             android:id="@+id/textView9"

@@ -13,19 +13,12 @@
         tools:context=".activities.ActivityKnxsistema">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/ivAtgalKnx"
             android:layout_width="113dp"
             android:layout_height="58dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/atgal_nyptukas" />
-    <ImageView
-        android:id="@+id/ivAtgalKnx"
-        android:layout_width="113dp"
-        android:layout_height="58dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/atgal_nyptukas" />
+            app:srcCompat="@drawable/backarrow" />
 
         <TextView
             android:id="@+id/textView9"
