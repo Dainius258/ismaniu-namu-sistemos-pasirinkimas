@@ -1,10 +1,11 @@
-package com.example.ismaniu_namu_sistemu_pasirinkimas
+package com.example.ismaniu_namu_sistemu_pasirinkimas.activities
 
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import com.example.ismaniu_namu_sistemu_pasirinkimas.R
 
 class ActivityKnxsistema : AppCompatActivity() {
 

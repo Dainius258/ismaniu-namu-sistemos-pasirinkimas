@@ -1,4 +1,4 @@
-package com.example.ismaniu_namu_sistemu_pasirinkimas
+package com.example.ismaniu_namu_sistemu_pasirinkimas.activities
 import android.util.Log
 import android.Manifest
 import android.graphics.BitmapFactory
@@ -23,8 +23,11 @@ import android.widget.Toast
 import android.view.MotionEvent
 import android.view.View
 import android.widget.ListView
+import com.example.ismaniu_namu_sistemu_pasirinkimas.utils.CheckboxAdapter
+import com.example.ismaniu_namu_sistemu_pasirinkimas.utils.HomeSystem
+import com.example.ismaniu_namu_sistemu_pasirinkimas.R
 
-class PabaigosPsl : AppCompatActivity() {
+class ActivityPabaigosPsl : AppCompatActivity() {
 
     private val REQUEST_CODE = 1232
     private lateinit var btnCreatePdf: Button

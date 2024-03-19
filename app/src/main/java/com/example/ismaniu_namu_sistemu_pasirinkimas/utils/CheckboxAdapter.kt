@@ -1,14 +1,14 @@
-package com.example.ismaniu_namu_sistemu_pasirinkimas
+package com.example.ismaniu_namu_sistemu_pasirinkimas.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.CheckBox
 import android.widget.Toast
+import com.example.ismaniu_namu_sistemu_pasirinkimas.R
 
 class CheckboxAdapter(context: Context, resource: Int, objects: Array<String>):
     ArrayAdapter<String>(context, resource, objects) {

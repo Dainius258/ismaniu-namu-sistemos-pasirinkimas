@@ -1,4 +1,4 @@
-package com.example.ismaniu_namu_sistemu_pasirinkimas
+package com.example.ismaniu_namu_sistemu_pasirinkimas.utils
 
 import java.io.Serializable
 

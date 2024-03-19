@@ -1,4 +1,4 @@
-package com.example.ismaniu_namu_sistemu_pasirinkimas
+package com.example.ismaniu_namu_sistemu_pasirinkimas.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,9 +8,12 @@ import android.widget.Button
 import android.widget.ImageView
 
 import android.widget.MultiAutoCompleteTextView
+import com.example.ismaniu_namu_sistemu_pasirinkimas.R
+import com.example.ismaniu_namu_sistemu_pasirinkimas.utils.CheckboxAdapter
+import com.example.ismaniu_namu_sistemu_pasirinkimas.utils.HomeSystem
 import java.io.Serializable
 
-class KlausimynoPuslapis : AppCompatActivity() {
+class ActivityKlausimynoPuslapis : AppCompatActivity() {
     // Define your adapters array
     private lateinit var arrayAdapter: CheckboxAdapter
     private lateinit var secondArrayAdapter: CheckboxAdapter
@@ -40,117 +43,140 @@ class KlausimynoPuslapis : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_klausimyno_puslapis)
         // custom CheckboxAdapter
-        arrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.lightdrop))
+        arrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.lightdrop))
         val autoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.autoCompleteTextView)
         autoCompleteTextView.setAdapter(arrayAdapter)
         autoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         //second dropdown
-        secondArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.blindsDropdown))
+        secondArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.blindsDropdown))
         val secondAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.secondAutoCompleteTextView)
         secondAutoCompleteTextView.setAdapter(secondArrayAdapter)
         secondAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // thrid dropdown
-        thirdArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.conDropdown))
+        thirdArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.conDropdown))
         val thirdAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.thirdAutoCompleteTextView)
         thirdAutoCompleteTextView.setAdapter(thirdArrayAdapter)
         thirdAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         //4 dropdown scenos
-        fourthArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.scDropdown))
+        fourthArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.scDropdown))
         val fourthAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.fourthAutoCompleteTextView)
         fourthAutoCompleteTextView.setAdapter(fourthArrayAdapter)
         fourthAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 5 Energijos  dropdown
-        fifthArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.energyDropd))
+        fifthArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.energyDropd))
         val fifthAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.fifthAutoCompleteTextView)
         fifthAutoCompleteTextView.setAdapter(fifthArrayAdapter)
         fifthAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 6 Weather dropdown
-        sixthArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.weatherDropd))
+        sixthArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.weatherDropd))
         val sixthAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.sixthAutoCompleteTextView)
         sixthAutoCompleteTextView.setAdapter(sixthArrayAdapter)
         sixthAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 7 langu duru stebejimas dropdown
-        seventhArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.watchDoors))
+        seventhArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.watchDoors))
         val seventhAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.seventhAutoCompleteTextView)
         seventhAutoCompleteTextView.setAdapter(seventhArrayAdapter)
         seventhAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 8 Laikmačio jungikliai
-        eighthArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.laikoJungikliai))
+        eighthArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.laikoJungikliai))
         val eighthAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.eighthAutoCompleteTextView)
         eighthAutoCompleteTextView.setAdapter(eighthArrayAdapter)
         eighthAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 9 Pačio vartotojo konfiguracijos apsirašymas
-        ninthArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.vartotojoKonApr))
+        ninthArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.vartotojoKonApr))
         val ninthAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.ninthAutoCompleteTextView)
         ninthAutoCompleteTextView.setAdapter(ninthArrayAdapter)
         ninthAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 10 Vartotojų valdymas
-        tenthArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.varValdymas))
+        tenthArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.varValdymas))
         val tenthAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.tenthAutoCompleteTextView)
         tenthAutoCompleteTextView.setAdapter(tenthArrayAdapter)
         tenthAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 11 Judesio, kiti jutiikliai
-        eleventhArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.judesioJut))
+        eleventhArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.judesioJut))
         val fourteenthAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.eleventhAutoCompleteTextView)
         fourteenthAutoCompleteTextView.setAdapter(eleventhArrayAdapter)
         fourteenthAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 12 Loginės funkcijos
-        twelfthArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.logFunkcijos))
+        twelfthArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.logFunkcijos))
         val twelfthAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.twelfthAutoCompleteTextView)
         twelfthAutoCompleteTextView.setAdapter(twelfthArrayAdapter)
         twelfthAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 13 Signalizacijos žinutės
-        thirteenthArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.sigZinutes))
+        thirteenthArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.sigZinutes))
         val thirteenthAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.thirteenthAutoCompleteTextView)
         thirteenthAutoCompleteTextView.setAdapter(thirteenthArrayAdapter)
         thirteenthAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 14 Kamera
-        eighteenthArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.cam))
+        eighteenthArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.cam))
         val eighteenthAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.fifteenthAutoCompleteTextView)
         eighteenthAutoCompleteTextView.setAdapter(eighteenthArrayAdapter)
         eighteenthAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 15 Diagramų sudarymas
-        sixteenthArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.diagramosDarymas))
+        sixteenthArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.diagramosDarymas))
         val sixteenthAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.sixteenthAutoCompleteTextView)
         sixteenthAutoCompleteTextView.setAdapter(sixteenthArrayAdapter)
         sixteenthAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 16 Veiksmų sękos
-        seventeenthArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.sekosVeiksmu))
+        seventeenthArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.sekosVeiksmu))
         val seventeenthAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.seventeenthAutoCompleteTextView)
         seventeenthAutoCompleteTextView.setAdapter(seventeenthArrayAdapter)
         seventeenthAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 17 Išmanioju telefonu
-        nineteenthArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.isTel))
+        nineteenthArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.isTel))
         val nineteenthAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.eighteenthAutoCompleteTextView)
         nineteenthAutoCompleteTextView.setAdapter(nineteenthArrayAdapter)
         nineteenthAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 18 Planšete
-        twentyArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.planPhone))
+        twentyArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.planPhone))
         val twentyAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.nineteenthAutoCompleteTextView)
         twentyAutoCompleteTextView.setAdapter(twentyArrayAdapter)
         twentyAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 19 Nuotolinis valdymas
-        twentyOneArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.nuotolinisVald))
+        twentyOneArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.nuotolinisVald))
         val twentyOneAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.twentiethAutoCompleteTextView)
         twentyOneAutoCompleteTextView.setAdapter(twentyOneArrayAdapter)
         twentyOneAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 20 Išmanūs asistentai
-        twentyTwoArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.isHelpers))
+        twentyTwoArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.isHelpers))
         val twentyTwoAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.twentyfirstAutoCompleteTextView)
         twentyTwoAutoCompleteTextView.setAdapter(twentyTwoArrayAdapter)
         twentyTwoAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 21 Kompiuteriu/naršykle
-        twentyThreeArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.controlPc))
+        twentyThreeArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.controlPc))
         val twentyThreeAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.twentysecondAutoCompleteTextView)
         twentyThreeAutoCompleteTextView.setAdapter(twentyThreeArrayAdapter)
         twentyThreeAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 22 Kokios statybos namas
-        statybosArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.kokiosStatybosNamas))
+        statybosArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.kokiosStatybosNamas))
         val statybosAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.statybosautoCompleteTextView)
         statybosAutoCompleteTextView.setAdapter(statybosArrayAdapter)
         statybosAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
         // 23 Valdymas Bluetooth, internetu
-        valdymasIBArrayAdapter = CheckboxAdapter(this, R.layout.checkbox_item, resources.getStringArray(R.array.valdymasInternetuBluetooth))
+        valdymasIBArrayAdapter = CheckboxAdapter(this,
+            R.layout.checkbox_item, resources.getStringArray(R.array.valdymasInternetuBluetooth))
         val valdymasIBAutoCompleteTextView = findViewById<MultiAutoCompleteTextView>(R.id.valdymasInternetuAutoCompleteTextView)
         valdymasIBAutoCompleteTextView.setAdapter(valdymasIBArrayAdapter)
         valdymasIBAutoCompleteTextView.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
@@ -168,7 +194,7 @@ class KlausimynoPuslapis : AppCompatActivity() {
             // Filtruok sistemas pagal pasirinkimus
             arrayAdapter.recommendHomeSystem(selectedOptions)
             val recommendedSystems: List<HomeSystem> = arrayAdapter.recommendHomeSystem(selectedOptions)
-            val intent = Intent(this, PabaigosPsl::class.java).apply {
+            val intent = Intent(this, ActivityPabaigosPsl::class.java).apply {
                 // Here, explicitly cast recommendedSystems as Serializable
                 putExtra("filteredSystems", recommendedSystems as Serializable)
             }

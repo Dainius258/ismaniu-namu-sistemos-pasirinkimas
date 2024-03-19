@@ -1,4 +1,4 @@
-package com.example.ismaniu_namu_sistemu_pasirinkimas
+package com.example.ismaniu_namu_sistemu_pasirinkimas.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +10,7 @@ class ActivityMain : AppCompatActivity() {
     private lateinit var binding: ActivityFirstPageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO) // panaikina dark  mode
         super.onCreate(savedInstanceState)
         binding = ActivityFirstPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -23,7 +23,7 @@ class ActivityMain : AppCompatActivity() {
         }
 
         binding.KlausimynoNyptukas.setOnClickListener {
-            val intent = Intent(this, KlausimynoPuslapis::class.java)
+            val intent = Intent(this, ActivityKlausimynoPuslapis::class.java)
             startActivity(intent)
         }
     }
