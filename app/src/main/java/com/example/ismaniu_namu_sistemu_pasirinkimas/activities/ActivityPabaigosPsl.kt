@@ -33,6 +33,12 @@ class ActivityPabaigosPsl : AppCompatActivity() {
     private lateinit var btnCreatePdf: Button
     private var count = 1 // Move count variable here to persist between button clicks
 
+    // Define buttons for house systems
+    private lateinit var buttonSystem1: Button
+    private lateinit var buttonSystem2: Button
+    private lateinit var buttonSystem3: Button
+    private lateinit var buttonSystem4: Button
+
     private lateinit var checkboxAdapter: CheckboxAdapter
     private lateinit var listView: ListView
 
@@ -40,11 +46,25 @@ class ActivityPabaigosPsl : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.klausimyno_pabaiga)
 
-// HOUSE SYSTEM BUTTONS
-        val buttonSystem1 = findViewById<Button>(R.id.button2)
-        val buttonSystem2 = findViewById<Button>(R.id.button3)
-        val buttonSystem3 = findViewById<Button>(R.id.button4)
-        val buttonSystem4 = findViewById<Button>(R.id.button5)
+        // Initialize house system buttons
+        buttonSystem1 = findViewById(R.id.button2)
+        buttonSystem2 = findViewById(R.id.button3)
+        buttonSystem3 = findViewById(R.id.button4)
+        buttonSystem4 = findViewById(R.id.button5)
+
+        // Set click listeners for house system buttons
+        buttonSystem1.setOnClickListener {
+            navigateToEnetSmartHome()
+        }
+        buttonSystem2.setOnClickListener {
+            navigateToJungHome()
+        }
+        buttonSystem3.setOnClickListener {
+            navigateToKnxValdymoSistema()
+        }
+        buttonSystem4.setOnClickListener {
+            navigateToLbManagement()
+        }
 
         // Atrinktos sistemos
         val filteredSystems = (intent.getSerializableExtra("filteredSystems") as? ArrayList<HomeSystem>) ?: return
@@ -264,6 +284,26 @@ class ActivityPabaigosPsl : AppCompatActivity() {
         } catch (e: IOException) {
             throw RuntimeException(e)
         }
+    }
+
+    private fun navigateToEnetSmartHome() {
+        val intent = Intent(this, ActivityEnetSmartHome::class.java)
+        startActivity(intent)
+    }
+
+    private fun navigateToJungHome() {
+        val intent = Intent(this, ActivityJunghome::class.java)
+        startActivity(intent)
+    }
+
+    private fun navigateToKnxValdymoSistema() {
+        val intent = Intent(this, ActivityKnxsistema::class.java)
+        startActivity(intent)
+    }
+
+    private fun navigateToLbManagement() {
+        val intent = Intent(this, ActivityLbmanagement::class.java)
+        startActivity(intent)
     }
 
     private fun drawLine(canvas: Canvas, startX: Float, startY: Float) {
