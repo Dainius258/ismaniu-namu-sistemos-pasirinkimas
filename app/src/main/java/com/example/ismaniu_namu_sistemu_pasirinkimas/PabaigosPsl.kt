@@ -71,7 +71,6 @@ class PabaigosPsl : AppCompatActivity() {
 
     }
 
-
     private fun askPermissions() {
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_CODE)
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_CODE)
