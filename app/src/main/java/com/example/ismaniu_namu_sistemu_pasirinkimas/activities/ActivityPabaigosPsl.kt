@@ -46,11 +46,13 @@ class ActivityPabaigosPsl : AppCompatActivity() {
         val buttonSystem3 = findViewById<Button>(R.id.button4)
         val buttonSystem4 = findViewById<Button>(R.id.button5)
 
-        // Paslepti mygtukus
-        val filteredSystems =
-            (intent.getSerializableExtra("filteredSystems") as? ArrayList<HomeSystem>) ?: return
-        //Log.d("PabaigosPsl", "Gautos filtruotos sistemos: $filteredSystems")
-        Log.d("PabaigosPsl", "Filtered Systems: $filteredSystems, Size: ${filteredSystems.size}")
+        // Atrinktos sistemos
+        val filteredSystems = (intent.getSerializableExtra("filteredSystems") as? ArrayList<HomeSystem>) ?: return
+        // Vartotojo pasirinktos funkcijos, galima pasiimti visas funkcijas su selectedFunctions
+        val selectedFunctions = (intent.getSerializableExtra("selectedFunctions") as? ArrayList<String>) ?: return
+
+        //Log.d("PabaigosPsl", "Filtered Systems: $filteredSystems, Size: ${filteredSystems.size}")
+        //Log.d("PabaigosPsl", "Selected functions: $selectedFunctions")
 
 // Paslpti visus mytukus
         val buttons = listOf(buttonSystem1, buttonSystem2, buttonSystem3, buttonSystem4)

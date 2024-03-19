@@ -197,6 +197,7 @@ class ActivityKlausimynoPuslapis : AppCompatActivity() {
             val intent = Intent(this, ActivityPabaigosPsl::class.java).apply {
                 // Here, explicitly cast recommendedSystems as Serializable
                 putExtra("filteredSystems", recommendedSystems as Serializable)
+                putExtra("selectedFunctions", selectedOptions as Serializable)
             }
             startActivity(intent)
         }
