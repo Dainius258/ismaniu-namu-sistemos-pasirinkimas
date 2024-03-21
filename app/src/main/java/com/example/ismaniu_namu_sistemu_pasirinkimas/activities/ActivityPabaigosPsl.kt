@@ -46,6 +46,7 @@ class ActivityPabaigosPsl : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.klausimyno_pabaiga)
 
+
         // Initialize house system buttons
         buttonSystem1 = findViewById(R.id.button2)
         buttonSystem2 = findViewById(R.id.button3)
@@ -94,6 +95,12 @@ class ActivityPabaigosPsl : AppCompatActivity() {
             createPDF()
         }
 
+        val btnBackToStartPage = findViewById<Button>(R.id.BackToStartPage)
+        btnBackToStartPage.setOnClickListener {
+            val intent = Intent(this, ActivityMain::class.java)
+            startActivity(intent)
+            finish() // Finish the current activity
+        }
     }
 
     private fun askPermissions() {

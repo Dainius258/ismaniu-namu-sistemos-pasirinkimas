@@ -15,9 +15,7 @@ class ActivityJunghome : AppCompatActivity() {
 
         val backButton: ImageView = findViewById(R.id.ivAtgalJung)
         backButton.setOnClickListener {
-            // Navigate back to the system info activity
-            val intent = Intent(this, ActivitySystemInfo::class.java)
-            startActivity(intent)
+            finish()
         }
 
         // ImageView for Rimvydas Velicka
