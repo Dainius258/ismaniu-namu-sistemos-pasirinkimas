@@ -1,5 +1,6 @@
 package com.example.ismaniu_namu_sistemu_pasirinkimas.activities
 import android.Manifest
+import android.app.ProgressDialog
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
@@ -9,6 +10,7 @@ import android.graphics.pdf.PdfDocument
 import android.graphics.RectF
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -18,15 +20,16 @@ import java.io.FileOutputStream
 import java.io.IOException
 import android.view.View
 import android.widget.ListView
+import android.widget.ProgressBar
 import com.example.ismaniu_namu_sistemu_pasirinkimas.utils.CheckboxAdapter
 import com.example.ismaniu_namu_sistemu_pasirinkimas.utils.HomeSystem
 import com.example.ismaniu_namu_sistemu_pasirinkimas.R
+import java.time.LocalTime
 
 class ActivityPabaigosPsl : AppCompatActivity() {
 
     private val REQUEST_CODE = 1232
     private lateinit var btnCreatePdf: Button
-    private var count = 1 // Move count variable here to persist between button clicks
 
     // Define buttons for house systems
     private lateinit var buttonSystem1: Button
@@ -37,15 +40,28 @@ class ActivityPabaigosPsl : AppCompatActivity() {
     private lateinit var checkboxAdapter: CheckboxAdapter
     private lateinit var listView: ListView
 
+    private val downloadsDir: File = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+
+    fun generateRandomString(length: Int): String {
+        val allowedChars = ('A'..'Z') + ('a'..'z') + ('0'..'9') // Define the characters allowed in the random string
+        return (1..length)
+            .map { allowedChars.random() }
+            .joinToString("")
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.klausimyno_pabaiga)
+
+        askPermissions()
 
         // Initialize house system buttons
         buttonSystem1 = findViewById(R.id.button2)
         buttonSystem2 = findViewById(R.id.button3)
         buttonSystem3 = findViewById(R.id.button4)
         buttonSystem4 = findViewById(R.id.button5)
+
+        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
 
         // Set click listeners for house system buttons
         buttonSystem1.setOnClickListener {
@@ -81,10 +97,9 @@ class ActivityPabaigosPsl : AppCompatActivity() {
             }
         }
 
-        askPermissions()
         btnCreatePdf = findViewById(R.id.XtmlToPdf)
         btnCreatePdf.setOnClickListener {
-            createPDF(selectedFunctions)
+            createPDF(selectedFunctions, progressBar, downloadsDir)
         }
 
     }
@@ -94,8 +109,9 @@ class ActivityPabaigosPsl : AppCompatActivity() {
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_CODE)
     }
 
-    private fun createPDF(selectedFunctions: ArrayList<String>) {
+    private fun createPDF(selectedFunctions: ArrayList<String>, progressBar:ProgressBar, downloadsDir:File) {
 
+        progressBar.visibility = View.VISIBLE
 
         val document = PdfDocument()
         val pageInfo1 = PdfDocument.PageInfo.Builder(1080, 1920, 1).create()
@@ -343,24 +359,27 @@ class ActivityPabaigosPsl : AppCompatActivity() {
 
         document.finishPage(page2)
 
-
-        val downloadsDir: File = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
         val baseName = "Ismanus_Namai"
-        var fileName = "$baseName$count.pdf"
+        val randomString = generateRandomString(8)
+        var fileName = "$baseName$randomString.pdf"
 
-        count++
 
         val file = File(downloadsDir, fileName)
         try {
+            Log.d("PDFSAVE", "Trying to save")
             val fos = FileOutputStream(file)
             document.writeTo(fos)
+            Log.d("PDFSAVE", "writeTo")
             document.close()
+            Log.d("PDFSAVE", "Document close")
             fos.close()
+            Log.d("PDFSAVE", "Stream close")
         } catch (e: FileNotFoundException) {
             throw RuntimeException(e)
         } catch (e: IOException) {
             throw RuntimeException(e)
         }
+        progressBar.visibility = View.GONE
     }
 
     private fun navigateToEnetSmartHome() {
