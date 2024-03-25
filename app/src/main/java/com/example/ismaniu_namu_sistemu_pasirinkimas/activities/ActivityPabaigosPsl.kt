@@ -1,8 +1,8 @@
 package com.example.ismaniu_namu_sistemu_pasirinkimas.activities
 import android.Manifest
-import android.app.ProgressDialog
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
@@ -24,7 +24,7 @@ import android.widget.ProgressBar
 import com.example.ismaniu_namu_sistemu_pasirinkimas.utils.CheckboxAdapter
 import com.example.ismaniu_namu_sistemu_pasirinkimas.utils.HomeSystem
 import com.example.ismaniu_namu_sistemu_pasirinkimas.R
-import java.time.LocalTime
+import com.example.ismaniu_namu_sistemu_pasirinkimas.data.FirmInfo
 
 class ActivityPabaigosPsl : AppCompatActivity() {
 
@@ -99,7 +99,7 @@ class ActivityPabaigosPsl : AppCompatActivity() {
 
         btnCreatePdf = findViewById(R.id.XtmlToPdf)
         btnCreatePdf.setOnClickListener {
-            createPDF(selectedFunctions, progressBar, downloadsDir)
+            createPDF(selectedFunctions, progressBar, downloadsDir, filteredSystems)
         }
 
         val btnBackToStartPage = findViewById<Button>(R.id.BackToStartPage)
@@ -115,7 +115,7 @@ class ActivityPabaigosPsl : AppCompatActivity() {
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_CODE)
     }
 
-    private fun createPDF(selectedFunctions: ArrayList<String>, progressBar:ProgressBar, downloadsDir:File) {
+    private fun createPDF(selectedFunctions: ArrayList<String>, progressBar:ProgressBar, downloadsDir:File, filteredSystems:ArrayList<HomeSystem>) {
 
         progressBar.visibility = View.VISIBLE
 
@@ -189,172 +189,133 @@ class ActivityPabaigosPsl : AppCompatActivity() {
         paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
         canvas2.drawText(subtitle, xTitle, yTitle, paint)
 
-                                                                // LB-MANAGEMENT REKVIZITAI
-        val firm1 = "LB-MANAGEMENT"
-        val xFirmTitle1 = 540f
-        val yFirmTitle1 = 300f
-        paint.textSize = 24f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(firm1, xFirmTitle1, yFirmTitle1, paint)
+        val lbLinkTexts = listOf(
+            "UAB Odri ︱ El-paštas : info@odri.lt ︱ Telefono nr. : +370 652 04021",
+            "Šviesos studija THINKLIGHT ︱ El-paštas : info@thinklight.lt ︱ Telefono nr. : +370 665 11403",
+            "Būsto automatika ︱ El-paštas : gediminas.jovaisa@bustoautomatika.lt ︱ Telefono nr. : +370 659 29904",
+            "Išmanūs sprendimai ︱ El-paštas : info@ismanussprendimai.lt ︱ Telefono nr. : +370 672 66488",
+            "Inžinerinių sprendimų grupė ︱ El-paštas : info@isg.lt ︱ Telefono nr. : +370 698 73400"
+        )
 
-        // Info apie Rimvyda
-        val lbLinkText1 = "UAB Odri ︱ El-paštas : info@odri.lt ︱ Telefono nr. : +370 652 04021"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(lbLinkText1, xFirmTitle1, yFirmTitle1 + 50, paint)
+        val enetLinkTexts = listOf(
+            "Inžinerinių sprendimų grupė ︱ El-paštas : info@isg.lt ︱ Telefono nr. : +370 698 73400",
+            "Pažangi namų automatika ︱ El-paštas : info@iha.lt ︱ Telefono nr. : +370 680 15265",
+            "Vimova ︱ El-paštas : info@vimova.lt ︱ Telefono nr. : +370 644 99571",
+            "ATEA ︱ El-paštas : Aurimas.petrutis@atea.lt ︱ Telefono nr. : +370 682 55048",
+            "Elektros architektūra (tik projektavimas) ︱ El-paštas : gediminas@earchitektura.lt ︱ Telefono nr. : +370 672 92600"
+        )
 
-        // Info apie Dainiu
-        val lbLinkText2 = "Šviesos studija THINKLIGHT ︱ El-paštas : info@thinklight.lt ︱ Telefono nr. : +370 665 11403"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(lbLinkText2, xFirmTitle1, yFirmTitle1 + 75, paint)
+        val jungLinkTexts = listOf(
+            "UAB Odri ︱ El-paštas : info@odri.lt ︱ Telefono nr. : +370 652 04021",
+            "Šviesos studija THINKLIGHT ︱ El-paštas : info@thinklight.lt ︱ Telefono nr. : +370 665 11403",
+            "Būsto automatika ︱ El-paštas : gediminas.jovaisa@bustoautomatika.lt ︱ Telefono nr. : +370 659 29904",
+            "Išmanūs sprendimai ︱ El-paštas : info@ismanussprendimai.lt ︱ Telefono nr. : +370 672 66488",
+            "Inžinerinių sprendimų grupė ︱ El-paštas : info@isg.lt ︱ Telefono nr. : +370 698 73400"
+        )
 
-        // Info apie Anatolij
-        val lbLinkText3 = "Būsto automatika ︱ El-paštas : gediminas.jovaisa@bustoautomatika.lt ︱ Telefono nr. : +370 659 29904"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(lbLinkText3, xFirmTitle1, yFirmTitle1 + 100, paint)
+        val knxLinkTexts = listOf(
+            "Montuotojas Rimvydas Velička ︱ El-paštas : rimkasss@gmail.com ︱ Telefono nr. : +370 622 93906",
+            "Montuotojas Dainius Jurgulis ︱ El-paštas : dovydas.kancauskis@gmail.com ︱ Telefono nr. : +370 629 22779",
+            "Montuotojas Anatolij Volodko ︱ El-paštas : valerluko@gmail.com ︱ Telefono nr. : +370 675 84765",
+            "Montuotojas Valerij Lukoic ︱ El-paštas : eltolikas@gmail.com ︱ Telefono nr. : +370 687 59929",
+            "Montuotojas Dovydas Kančauskis ︱ El-paštas : djurgulis@gmail.com ︱ Telefono nr. : +370 659 53820"
+        )
 
-        // Info apie Valerij
-        val lbLinkText4 = "Išmanūs sprendimai ︱ El-paštas : info@ismanussprendimai.lt ︱ Telefono nr. : +370 672 66488"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(lbLinkText4, xFirmTitle1, yFirmTitle1+125, paint)
+        val firmInfo1 = FirmInfo(
+            firmName = "LB-MANAGEMENT",
+            xFirmTitle = 540f,
+            yFirmTitle = 400f,
+            photoFirmWidth = 166f,
+            photoFirmHeight = 16f,
+            linkTexts = lbLinkTexts
+        )
 
-        // Info apie Dovyda
-        val lbLinkText5 = "Inžinerinių sprendimų grupė ︱ El-paštas : info@isg.lt ︱ Telefono nr. : +370 698 73400"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(lbLinkText5, xFirmTitle1, yFirmTitle1 +150, paint)
+        val firmInfo2 = FirmInfo(
+            firmName = "eNet SMART HOME",
+            xFirmTitle = 540f,
+            yFirmTitle = 750f,
+            photoFirmWidth = 266f,
+            photoFirmHeight = 16f,
+            linkTexts = enetLinkTexts
+        )
 
-                                                                // eNet SMART HOME REKVIZITAI
-        val firm2 = "eNet SMART HOME"
-        val xFirmTitle2 = 540f
-        val yFirmTitle2 = 650f
-        val photoFirm2Width = 128f
-        val photoFirm2Height = (photoBitmap.height.toFloat() / photoBitmap.width * photoWidth).toInt()
-        val photoFirm2X = 670f
-        val photoFirm2Y = 600f
-        paint.textSize = 24f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(firm2, xFirmTitle2, yFirmTitle2, paint)
-        canvas2.drawBitmap(photoEnet, null, RectF(photoFirm2X, photoFirm2Y, photoFirm2X + photoFirm2Width, photoFirm2Y + photoFirm2Height), null)
+        val firmInfo3 = FirmInfo(
+            firmName = "JUNG HOME",
+            xFirmTitle = 540f,
+            yFirmTitle = 1150f,
+            photoFirmWidth = 166f,
+            photoFirmHeight = 16f,
+            linkTexts = jungLinkTexts
+        )
 
-        // Info apie Rimvyda
-        val enetLinkText1 = "Inžinerinių sprendimų grupė ︱ El-paštas : info@isg.lt ︱ Telefono nr. : +370 698 73400"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(enetLinkText1, xFirmTitle2, yFirmTitle2 + 50, paint)
+        val firmInfo4 = FirmInfo(
+            firmName = "KNX valdymo sistema",
+            xFirmTitle = 540f,
+            yFirmTitle = 1600f,
+            photoFirmWidth = 266f,
+            photoFirmHeight = 16f,
+            linkTexts = knxLinkTexts
+        )
 
-        // Info apie Dainiu
-        val enetLinkText2 = "Pažangi namų automatika ︱ El-paštas : info@iha.lt ︱ Telefono nr. : +370 680 15265"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(enetLinkText2, xFirmTitle2, yFirmTitle2 + 75, paint)
 
-        // Info apie Anatolij
-        val enetLinkText3 = "Vimova ︱ El-paštas : info@vimova.lt ︱ Telefono nr. : +370 644 99571"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(enetLinkText3, xFirmTitle2, yFirmTitle2 + 100, paint)
 
-        // Info apie Valerij
-        val enetLinkText4 = "ATEA ︱ El-paštas : Aurimas.petrutis@atea.lt ︱ Telefono nr. : +370 682 55048"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(enetLinkText4, xFirmTitle2, yFirmTitle2 +125, paint)
 
-        // Info apie Dovyda
-        val enetLinkText5 = "Elektros architektūra (tik projektavimas) ︱ El-paštas : gediminas@earchitektura.lt ︱ Telefono nr. : +370 672 92600"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(enetLinkText5, xFirmTitle2, yFirmTitle2 +150, paint)
 
-                                                                // JUNG HOME Rekvizitai
-        val firm3 = "JUNG HOME"
-        val xFirmTitle3 = 540f
-        val yFirmTitle3 = 1050f
-        val photoFirm3Width = 72f
-        val photoFirm3Height = (photoBitmap.height.toFloat() / photoBitmap.width * photoWidth).toInt()
-        val photoFirm3X = 670f
-        val photoFirm3Y = 980f
-        paint.textSize = 24f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(firm3, xFirmTitle3, yFirmTitle3, paint)
-        canvas2.drawBitmap(photoJung, null, RectF(photoFirm3X, photoFirm3Y, photoFirm3X + photoFirm3Width, photoFirm3Y + photoFirm3Height), null)
 
-        // Info apie Rimvyda
-        val jungLinkText1 = "UAB Odri ︱ El-paštas : info@odri.lt ︱ Telefono nr. : +370 652 04021"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(jungLinkText1, xFirmTitle3, yFirmTitle3 + 50, paint)
 
-        // Info apie Dainiu
-        val jungLinkText2 = "Šviesos studija THINKLIGHT ︱ El-paštas : info@thinklight.lt ︱ Telefono nr. : +370 665 11403"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(jungLinkText2, xFirmTitle3, yFirmTitle3 + 75, paint)
+        // Nesl5pti tik mygtukus kurie atitinka pasirinkimams
+        var previousFirmInfoY = 350f // Initialize the previous Y-coordinate
 
-        // Info apie Anatolij
-        val jungLinkText3 = "Būsto automatika ︱ El-paštas : gediminas.jovaisa@bustoautomatika.lt ︱ Telefono nr. : +370 659 29904"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(jungLinkText3, xFirmTitle3, yFirmTitle3 + 100, paint)
+        filteredSystems.forEach { system ->
+            var currentFirmInfo: FirmInfo? = null
+            var currentPhoto: Bitmap? = null
 
-        // Info apie Valerij
-        val jungLinkText4 = "Išmanūs sprendimai ︱ El-paštas : info@ismanussprendimai.lt ︱ Telefono nr. : +370 672 66488"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(jungLinkText4, xFirmTitle3, yFirmTitle3 + 125, paint)
+            // Set current firm info and photo based on the system name
+            when(system.name) {
+                "KNX" -> {
+                    currentFirmInfo = firmInfo4
+                    currentPhoto = photoKnx
+                }
+                "JUNG Home" -> {
+                    currentFirmInfo = firmInfo3
+                    currentPhoto = photoJung
+                }
+                "eNet SMART HOME" -> {
+                    currentFirmInfo = firmInfo2
+                    currentPhoto = photoEnet
+                }
+                "LB MANAGEMENT" -> {
+                    currentFirmInfo = firmInfo1
+                    // No need to assign photo for LB MANAGEMENT
+                }
+            }
 
-        // Info apie Dovyda
-        val jungLinkText5 = "Inžinerinių sprendimų grupė ︱ El-paštas : info@isg.lt ︱ Telefono nr. : +370 698 73400"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(jungLinkText5, xFirmTitle3, yFirmTitle3 + 150, paint)
+            // If current firm info exists, adjust its y-coordinate and draw
+            currentFirmInfo?.let { firmInfo ->
+                paint.textSize = 24f
+                canvas2.drawText(firmInfo.firmName, firmInfo.xFirmTitle, previousFirmInfoY, paint)
 
-                                                                // KNX Rekvizitai
-        val firm4 = "KNX valdymo sistema"
-        val xFirmTitle4 = 540f
-        val yFirmTitle4 = 1500f
-        val photoFirm4Width = 72f
-        val photoFirm4Height = (photoBitmap.height.toFloat() / photoBitmap.width * photoWidth).toInt()
-        val photoFirm4X = 670f
-        val photoFirm4Y = 1430f
-        paint.textSize = 24f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(firm4, xFirmTitle4, yFirmTitle4, paint)
-        canvas2.drawBitmap(photoKnx, null, RectF(photoFirm4X, photoFirm4Y, photoFirm4X + photoFirm4Width, photoFirm4Y + photoFirm4Height), null)
+                // Draw photo if available
+                currentPhoto?.let {
+                    canvas2.drawBitmap(
+                        it,
+                        null,
+                        RectF(firmInfo.xFirmTitle + 150, previousFirmInfoY + 150, firmInfo.xFirmTitle + firmInfo.photoFirmWidth, previousFirmInfoY + firmInfo.photoFirmHeight),
+                        null
+                    )
+                }
 
-        // Info apie Rimvyda
-        val knxLinkText1 = "Montuotojas Rimvydas Velička ︱ El-paštas : rimkasss@gmail.com ︱ Telefono nr. : +370 622 93906"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(knxLinkText1, xFirmTitle4, yFirmTitle4 + 50, paint)
+                // Draw link texts
+                val linkTextsStartY = previousFirmInfoY + 50
+                paint.textSize = 20f
+                firmInfo.linkTexts.forEachIndexed { index, text ->
+                    canvas2.drawText(text, firmInfo.xFirmTitle, linkTextsStartY + index * 30, paint)
+                }
 
-        // Info apie Dainiu
-        val knxLinkText2 = "Montuotojas Dainius Jurgulis ︱ El-paštas : dovydas.kancauskis@gmail.com ︱ Telefono nr. : +370 629 22779"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(knxLinkText2, xFirmTitle4, yFirmTitle4 + 75, paint)
-
-        // Info apie Anatolij
-        val knxLinkText3 = "Montuotojas Anatolij Volodko ︱ El-paštas : valerluko@gmail.com ︱ Telefono nr. : +370 675 84765"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(knxLinkText3, xFirmTitle4, yFirmTitle4 + 100, paint)
-
-        // Info apie Valerij
-        val knxLinkText4 = "Montuotojas Valerij Lukoic ︱ El-paštas : eltolikas@gmail.com ︱ Telefono nr. : +370 687 59929"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(knxLinkText4, xFirmTitle4, yFirmTitle4 +125, paint)
-
-        // Info apie Dovyda
-        val knxLinkText5 = "Montuotojas Dovydas Kančauskis ︱ El-paštas : djurgulis@gmail.com ︱ Telefono nr. : +370 659 53820"
-        paint.textSize = 20f
-        paint.setShadowLayer(1f, 1f, 1f, Color.BLACK)
-        canvas2.drawText(knxLinkText5, xFirmTitle4, yFirmTitle4 +150, paint)
+                // Update previous Y-coordinate for the next iteration
+                previousFirmInfoY += 250f
+            }
+        }
 
         document.finishPage(page2)
 
