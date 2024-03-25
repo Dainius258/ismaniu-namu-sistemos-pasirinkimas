@@ -183,8 +183,7 @@ class ActivityKlausimynoPuslapis : AppCompatActivity() {
 
         val backButton = findViewById<ImageView>(R.id.AtgalNyptukas)
         backButton.setOnClickListener {
-            val intent = Intent(this, ActivityMain::class.java)
-            startActivity(intent)
+            finish()
         }
 
         val selectSolutionButton = findViewById<Button>(R.id.button)

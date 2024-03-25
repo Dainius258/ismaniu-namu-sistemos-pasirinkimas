@@ -22,8 +22,7 @@ class ActivityLbmanagement : AppCompatActivity() {
 
         val backButton: ImageView = findViewById(R.id.ivAtgalLb)
         backButton.setOnClickListener {
-            val intent = Intent(this, ActivitySystemInfo::class.java)
-            startActivity(intent)
+            finish()
         }
 
         // ImageView for UAB Odri

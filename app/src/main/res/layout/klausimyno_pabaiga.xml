@@ -1,156 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="326dp"
-                android:layout_height="99dp"
-                android:layout_marginTop="16dp"
-                android:backgroundTint="#618AA7"
-                android:drawableBottom="@drawable/knx"
-                android:drawablePadding="4dp"
-                android:text="KNX sistema"
-                app:cornerRadius="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.494"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/aprasymas2" />
+        android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="326dp"
-                android:layout_height="99dp"
-                android:layout_marginTop="2dp"
-                android:backgroundTint="#618AA7"
-                android:drawableBottom="@drawable/junglogo"
-                android:drawablePadding="4dp"
-                android:text="JUNG Home sistema"
-                app:cornerRadius="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.494"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button2" />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="326dp"
+            android:layout_height="99dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#618AA7"
+            android:drawableBottom="@drawable/knx"
+            android:drawablePadding="4dp"
+            android:text="KNX sistema"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aprasymas2" />
 
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/jung" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="326dp"
+            android:layout_height="99dp"
+            android:layout_marginTop="2dp"
+            android:backgroundTint="#618AA7"
+            android:drawableBottom="@drawable/junglogo"
+            android:drawablePadding="4dp"
+            android:text="JUNG Home sistema"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button2" />
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="64dp"
-                android:fontFamily="sans-serif-light"
-                android:gravity="center"
-                android:shadowColor="#A6A6A6"
-                android:shadowDx="5"
-                android:shadowDy="5"
-                android:shadowRadius="6"
-                android:text="Sistemų pasiūlymai pagal jūsų pasirinkimą"
-                android:textColor="#000"
-                android:textSize="40sp"
-                android:textStyle=""
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/jung" />
 
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:shadowColor="#A6A6A6"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="6"
+            android:text="Sistemų pasiūlymai pagal jūsų pasirinkimą"
+            android:textColor="#000"
+            android:textSize="40sp"
+            android:textStyle=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <Button
+            android:id="@+id/XtmlToPdf"
+            android:layout_width="380dp"
+            android:layout_height="64dp"
+            android:backgroundTint="#618AA7"
+            android:text="IŠSAUGOTI INFORMACIJĄ PDF FAILO FORMATU"
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.461"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button5"
+            app:layout_constraintVertical_bias="0.223" />
 
-            <Button
-                android:id="@+id/XtmlToPdf"
-                android:layout_width="380dp"
-                android:layout_height="64dp"
-                android:backgroundTint="#618AA7"
-                android:text="IŠSAUGOTI INFORMACIJĄ PDF FAILO FORMATU"
-                app:cornerRadius="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.483"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button5"
-                app:layout_constraintVertical_bias="0.8" />
+        <Button
+            android:id="@+id/BackToStartPage"
+            android:layout_width="380dp"
+            android:layout_height="64dp"
+            android:backgroundTint="#618AA7"
+            android:text="GRYŽTI ATGAL Į PRADŽIA "
+            app:cornerRadius="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.461"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/XtmlToPdf" />
 
-            <Button
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="326dp"
+            android:layout_height="99dp"
+            android:backgroundTint="#618AA7"
+            android:drawableBottom="@drawable/enet"
+            android:drawablePadding="4dp"
+            android:text="eNet Smart Home sistema"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button3" />
 
-                android:id="@+id/button4"
-                android:layout_width="326dp"
-                android:layout_height="99dp"
-                android:backgroundTint="#618AA7"
-                android:drawableBottom="@drawable/enet"
-                android:drawablePadding="4dp"
-                android:text="eNet Smart Home sistema"
-                app:cornerRadius="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.494"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button3" />
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/jung" />
 
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/jung" />
+        <TextView
+            android:id="@+id/aprasymas2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:shadowColor="#A6A6A6"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="6"
+            android:text="Šios sistemos labiausiai tinka pagal jūsų pasirinktus kritejus:"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-            <TextView
-                android:id="@+id/aprasymas2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:shadowColor="#A6A6A6"
-                android:shadowDx="5"
-                android:shadowDy="5"
-                android:shadowRadius="6"
-                android:text="Šios sistemos labiausiai tinka pagal jūsų pasirinktus kritejus:"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="326dp"
+            android:layout_height="99dp"
+            android:backgroundTint="#618AA7"
+            android:text="LB MANAGEMENT sistema"
+            app:cornerRadius="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
 
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="326dp"
-                android:layout_height="99dp"
-                android:backgroundTint="#618AA7"
-                android:text="LB MANAGEMENT sistema"
-                app:cornerRadius="0dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button4" />
 
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button4" />
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_centerInParent="true"
-                android:visibility="gone"
-                />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-</LinearLayout>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
