@@ -47,9 +47,8 @@
     </string-array>
     <!--Kokios statybos namas-->
     <string-array name="kokiosStatybosNamas">
-        <item>Namas projektuojamas</item>
-        <item>Naujos statybos namas</item>
-        <item>Atnaujintos statybos namas</item>
+        <item>Esančius projektavimo etape</item>
+        <item>Naujos arba atnaujintos statybos</item>
     </string-array>
     <!--Išmanūs asistentai-->
     <string-array name="isHelpers">
@@ -130,15 +129,14 @@
         <item>Iki 256 perjungimo kartų</item>
         <item>Astro funkcija</item>
     </string-array>
-    <!--pagrindines-funkcijos-->
+    <!--sviesos-funkcijos-->
     <string-array name="lightdrop">
         <item>Paprastas jungiklis</item>
         <item>Pritemdoma šviesa</item>
-        <item>Šviesos temperatūra</item>
         <item>Šviesos spalva</item>
         <item>Apšvietimo sękos</item>
     </string-array>
-    <!--pagrindines-funkcijos-->
+    <!--zaliuszes-funkcijos-->
     <string-array name="blindsDropdown">
         <item>Žaliuzės</item>
         <item>Langinės</item>
@@ -180,4 +178,5 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="butini_pasirinkimai">Būtini pasirinkimai:</string>
 </resources>

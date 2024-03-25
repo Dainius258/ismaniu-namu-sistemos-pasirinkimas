@@ -1,7 +1,21 @@
 package com.example.ismaniu_namu_sistemu_pasirinkimas.utils
 
 import java.io.Serializable
-
+/*
+* val selectSolutionButton = findViewById<Button>(R.id.button)
+        selectSolutionButton.setOnClickListener {
+            // Čia surink visus pasirinkimus iš visų AutoCompleteTextView
+            val selectedOptions = getSelectedOptionsFromAllDropdowns()
+            // Filtruok sistemas pagal pasirinkimus
+            arrayAdapter.recommendHomeSystem(selectedOptions)
+            val recommendedSystems: List<HomeSystem> = arrayAdapter.recommendHomeSystem(selectedOptions)
+            val intent = Intent(this, ActivityPabaigosPsl::class.java).apply {
+                // Here, explicitly cast recommendedSystems as Serializable
+                putExtra("filteredSystems", recommendedSystems as Serializable)
+                putExtra("selectedFunctions", selectedOptions as Serializable)
+            }
+            startActivity(intent)
+        }*/
 data class HomeSystem(
     val name: String,
     val lightfeatures: List<String>,
@@ -26,7 +40,8 @@ data class HomeSystem(
     val pcControl: List<String>,
     val smartAssistants: List<String>,
     val additionalInfo: String,
-    val controllConection: List<String>
+    val controllConection: List<String>,
+    val statybosHouse: List<String>
 ): Serializable
 val homeSystems = listOf(
     HomeSystem(
@@ -53,7 +68,8 @@ val homeSystems = listOf(
         smartAssistants = emptyList(),
         pcControl = emptyList(),
         additionalInfo = "LB MANAGEMENT sistema neturi šių funkcijų: ...",
-        controllConection  = listOf("Bluetooth")
+        controllConection  = listOf("Bluetooth"),
+        statybosHouse = listOf("Naujos arba atnaujintos statybos", "Esančius projektavimo etape")
     ),
     HomeSystem(
         name = "eNet SMART HOME",
@@ -79,11 +95,12 @@ val homeSystems = listOf(
         smartAssistants = listOf("Google Assistan", "Amazon Alexa Kompiuteriu/naršykle"),
         pcControl = emptyList(),
         additionalInfo = "eNet SMART HOME sistema neturi šių funkcijų: ...",
-        controllConection  = listOf("Internetu")
+        controllConection  = listOf("Internetu"),
+        statybosHouse = listOf("Naujos arba atnaujintos statybos", "Esančius projektavimo etape")
     ),
     HomeSystem(
         name = "KNX",
-        lightfeatures = listOf("Paprastas jungiklis", "Pritemdoma šviesa", "Šviesos temperatūra", "Šviesos spalva", "Apšvietimo sękos"),
+        lightfeatures = listOf("Paprastas jungiklis", "Pritemdoma šviesa", "Šviesos spalva", "Apšvietimo sękos"),
         blindfeatures = listOf("Žaliuzės", "Langinės", "Tentai", "Stoglangiai"),
         vventiliacijosfeatures = listOf("Radiatoriaus termostatas", "Ventiliacijos atvartai", "Katilo termostatas", "Grindų šildymo termostatas"),
         scenesfeatures = listOf("Scenų valdymas balso kontrole", "Scenų valdymas programėle", "Scenų kiekis be limitų"),
@@ -105,7 +122,8 @@ val homeSystems = listOf(
         smartAssistants = listOf("Google Assistan", "Amazon Alexa"),
         pcControl = listOf("Kompiuteriu/naršykle"),
         additionalInfo = "KNX sistema neturi šių funkcijų: ...",
-        controllConection  = listOf("Internetu")
+        controllConection  = listOf("Internetu"),
+        statybosHouse = listOf("Esančius projektavimo etape")
     ),
     HomeSystem(
         name = "JUNG Home",
@@ -131,6 +149,7 @@ val homeSystems = listOf(
         smartAssistants = listOf("Google Assistan", "Amazon Alexa"),
         pcControl = emptyList(),
         additionalInfo = "KNX sistema neturi šių funkcijų: ...",
-        controllConection  = listOf("Internetu", "Bluetooth")
+        controllConection  = listOf("Internetu", "Bluetooth"),
+        statybosHouse = listOf("Naujos arba atnaujintos statybos")
     )
 )

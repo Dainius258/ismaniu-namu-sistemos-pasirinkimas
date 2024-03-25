@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.ImageView
 
 import android.widget.MultiAutoCompleteTextView
+import androidx.appcompat.app.AlertDialog
 import com.example.ismaniu_namu_sistemu_pasirinkimas.R
 import com.example.ismaniu_namu_sistemu_pasirinkimas.utils.CheckboxAdapter
 import com.example.ismaniu_namu_sistemu_pasirinkimas.utils.HomeSystem
@@ -185,20 +186,33 @@ class ActivityKlausimynoPuslapis : AppCompatActivity() {
         backButton.setOnClickListener {
             finish()
         }
-
         val selectSolutionButton = findViewById<Button>(R.id.button)
         selectSolutionButton.setOnClickListener {
-            // Čia surink visus pasirinkimus iš visų AutoCompleteTextView
-            val selectedOptions = getSelectedOptionsFromAllDropdowns()
-            // Filtruok sistemas pagal pasirinkimus
-            arrayAdapter.recommendHomeSystem(selectedOptions)
-            val recommendedSystems: List<HomeSystem> = arrayAdapter.recommendHomeSystem(selectedOptions)
-            val intent = Intent(this, ActivityPabaigosPsl::class.java).apply {
-                // Here, explicitly cast recommendedSystems as Serializable
-                putExtra("filteredSystems", recommendedSystems as Serializable)
-                putExtra("selectedFunctions", selectedOptions as Serializable)
+            val valdymasIBSelectedOptions = valdymasIBArrayAdapter.getSelectedOptions()
+            val statybosSelectedOptions = statybosArrayAdapter.getSelectedOptions()
+            val zaliuzesSelectedOptions = secondArrayAdapter.getSelectedOptions()
+            val apsvietimoSelectedoptions = arrayAdapter.getSelectedOptions()
+
+            if (valdymasIBSelectedOptions.isEmpty() || statybosSelectedOptions.isEmpty() || zaliuzesSelectedOptions.isEmpty() || apsvietimoSelectedoptions.isEmpty()) {
+                // Sukurkite AlertDialog
+                AlertDialog.Builder(this@ActivityKlausimynoPuslapis).apply {
+                    setTitle("Privalomi laukai")
+                    setMessage("Būtini pasirinkimai turi būti pasirinkti")
+                    setPositiveButton("Gerai") { dialog, which ->
+                        // Vartotojas spaudžia mygtuką "Gerai", dialogas užsidaro
+                    }
+                    show()
+                }
+            } else {
+                // Tęskite su jūsų logika, jei viskas yra pasirinkta
+                val selectedOptions = getSelectedOptionsFromAllDropdowns()
+                val recommendedSystems: List<HomeSystem> = arrayAdapter.recommendHomeSystem(selectedOptions)
+                val intent = Intent(this@ActivityKlausimynoPuslapis, ActivityPabaigosPsl::class.java).apply {
+                    putExtra("filteredSystems", recommendedSystems as Serializable)
+                    putExtra("selectedFunctions", selectedOptions as Serializable)
+                }
+                startActivity(intent)
             }
-            startActivity(intent)
         }
 
     }

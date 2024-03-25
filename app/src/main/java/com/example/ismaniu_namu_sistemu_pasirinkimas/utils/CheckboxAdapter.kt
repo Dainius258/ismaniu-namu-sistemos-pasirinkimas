@@ -80,7 +80,7 @@ class CheckboxAdapter(context: Context, resource: Int, objects: Array<String>):
         val allFeatures = lightfeatures + blindfeatures + vventiliacijosfeatures + scenesfeatures + energyfeatures +
                 weatherfeatures + windowdoorwatchfeatures + laikmacioJungikliaifeatures + userConfeatures +
                 userControlfeatures + movementsAndOtherfeatures + logicFunfeatures + sigfeatures +
-                kamerafeatures + diagramusudarymasfeatures + veiksmusekosfeatures + phonecontrolMethods +
+                kamerafeatures + diagramusudarymasfeatures + veiksmusekosfeatures + phonecontrolMethods + statybosHouse +
                 notphonecontrolMethods + remoteControl + pcControl + smartAssistants + listOf(additionalInfo) + controllConection
         return feature in allFeatures
     }
